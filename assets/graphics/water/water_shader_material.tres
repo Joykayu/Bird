@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dbp67pd0hl0fu"]
+
+[ext_resource type="Shader" uid="uid://d23sqo17vd2ui" path="res://scripts/water_caustics_shader_.gdshader" id="1_b48ed"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xv3re"]
+frequency = 0.0033
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_10oe7"]
+seamless = true
+noise = SubResource("FastNoiseLite_xv3re")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b48ed"]
+noise_type = 2
+frequency = 0.0849
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xv3re"]
+seamless = true
+noise = SubResource("FastNoiseLite_b48ed")
+
+[resource]
+shader = ExtResource("1_b48ed")
+shader_parameter/waterNoise = SubResource("NoiseTexture2D_xv3re")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_10oe7")
+shader_parameter/waterColor = Color(0, 0.315847, 0.619419, 1)
+shader_parameter/colorCorection = 0.35
+shader_parameter/distortionForce = 0.01
+shader_parameter/WDBrightness = 1.5
+shader_parameter/WDFreq = 0.6
+shader_parameter/WDSize = 0.9
+shader_parameter/WDSpeed = 4.0
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offSetSpeed = Vector2(0.01, 0.5)
+shader_parameter/backGroundDirX = 0.01
+shader_parameter/backGroundDirY = 0.01

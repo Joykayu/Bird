@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://bthbt0ov64j4q"]
+
+[ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://c7vgnvpfdaoue" path="res://assets/graphics/background_placeholder.png" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://2k0aavphcxks" path="res://scripts/touchscreen_left_button.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://ctf4yiwnqrqgj" path="res://scripts/touchscreen_right_button.gd" id="5_tbgi4"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tbgi4"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tefeu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o6xl0"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tipki"]
+normal = Vector2(-1, 0)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3381.0
+offset_top = -3120.0
+offset_right = 5867.0
+offset_bottom = 4417.0
+texture = ExtResource("2_0wfyh")
+stretch_mode = 1
+
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
+
+[node name="TopBorder" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, -3120)
+shape = SubResource("WorldBoundaryShape2D_tbgi4")
+
+[node name="BottomBorder" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(0, 4417)
+shape = SubResource("WorldBoundaryShape2D_tefeu")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(-3382, 4417)
+shape = SubResource("WorldBoundaryShape2D_o6xl0")
+
+[node name="RightBorder" type="CollisionShape2D" parent="WorldBoundaries"]
+position = Vector2(5865, 4417)
+shape = SubResource("WorldBoundaryShape2D_tipki")
+
+[node name="Bird" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(982, 584)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Bird"]
+process_callback = 0
+limit_left = -3380
+limit_top = -3120
+limit_right = 5865
+limit_bottom = 4410
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_right_margin = 0.4
+editor_draw_drag_margin = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftButtonControl" type="Control" parent="UI/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftButton" type="TouchScreenButton" parent="UI/HBoxContainer/LeftButtonControl"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(7.41406, 8.59375)
+texture_normal = ExtResource("3_sugp2")
+script = ExtResource("4_jyhfs")
+
+[node name="RightButtonControl" type="Control" parent="UI/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightButton" type="TouchScreenButton" parent="UI/HBoxContainer/RightButtonControl"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(7.41406, 8.59375)
+texture_normal = ExtResource("3_sugp2")
+script = ExtResource("5_tbgi4")
+
+[connection signal="ready" from="." to="UI/HBoxContainer/LeftButtonControl/LeftButton" method="_on_main_ready"]
+[connection signal="resized" from="UI/HBoxContainer/LeftButtonControl" to="UI/HBoxContainer/LeftButtonControl/LeftButton" method="_on_left_button_control_resized"]
+[connection signal="pressed" from="UI/HBoxContainer/LeftButtonControl/LeftButton" to="Bird" method="_on_left_button_pressed"]
+[connection signal="resized" from="UI/HBoxContainer/RightButtonControl" to="UI/HBoxContainer/RightButtonControl/RightButton" method="_on_right_button_control_resized"]
+[connection signal="pressed" from="UI/HBoxContainer/RightButtonControl/RightButton" to="Bird" method="_on_right_button_pressed"]

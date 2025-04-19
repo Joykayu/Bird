@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://bthbt0ov64j4q"]
+
+[ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://c7vgnvpfdaoue" path="res://assets/graphics/background_placeholder.png" id="2_0wfyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wfyh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5qli"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47, 0.43616, 0.3572, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3381.0
+offset_top = -3120.0
+offset_right = 5867.0
+offset_bottom = 4417.0
+texture = ExtResource("2_0wfyh")
+stretch_mode = 1
+
+[node name="Bird" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(982, 584)
+scale = Vector2(2, 2)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
+flat = true
+
+[node name="RightButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o5qli")
+flat = true
+
+[connection signal="button_down" from="HBoxContainer/LeftButton" to="Bird" method="_on_left_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/LeftButton" to="Bird" method="_on_left_button_button_up"]
+[connection signal="button_down" from="HBoxContainer/RightButton" to="Bird" method="_on_right_button_button_down"]
+[connection signal="button_up" from="HBoxContainer/RightButton" to="Bird" method="_on_right_button_button_up"]

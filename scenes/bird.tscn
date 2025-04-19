@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://3pkdevn0dy2s"]
+
+[ext_resource type="Script" uid="uid://chb5fcybfq24f" path="res://scripts/bird.gd" id="1_twsrt"]
+[ext_resource type="Texture2D" uid="uid://dpjdf07httq1h" path="res://assets/graphics/bird/RAY_64.png" id="2_3po83"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3po83"]
+polygon = PackedVector2Array(-2, -28, -2, -27, -3, -27, -3, -26, -4, -26, -4, -24, -5, -24, -5, -23, -6, -23, -6, -22, -7, -22, -7, -21, -8, -21, -8, -20, -9, -20, -9, -19, -10, -19, -10, -17, -11, -17, -11, -16, -12, -16, -12, -15, -13, -15, -13, -14, -14, -14, -14, -12, -13, -12, -13, -11, -12, -11, -12, -10, -11, -10, -11, -9, -8, -9, -8, -8, -7, -8, -7, -7, -3, -7, -3, 0, -2, 0, -2, 13, -1, 13, -1, 23, 0, 23, 0, 25, 1, 25, 1, 23, 2, 23, 2, 0, 3, 0, 3, -7, 7, -7, 7, -8, 8, -8, 8, -9, 11, -9, 11, -10, 12, -10, 12, -11, 13, -11, 13, -12, 14, -12, 14, -14, 13, -14, 13, -15, 12, -15, 12, -16, 11, -16, 11, -17, 10, -17, 10, -19, 9, -19, 9, -20, 8, -20, 8, -21, 7, -21, 7, -22, 6, -22, 6, -23, 5, -23, 5, -24, 4, -24, 4, -26, 3, -26, 3, -27, 2, -27, 2, -28)
+
+[node name="Bird" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_twsrt")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(0, 13)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3po83")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 30)
+build_mode = 1
+polygon = PackedVector2Array(-4, -71, 3, -71, 26, -43, 14, -33, -14, -33, -26, -43)
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(0, 13)
+scale = Vector2(2, 2)
+occluder = SubResource("OccluderPolygon2D_3po83")
