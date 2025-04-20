@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://1kh6tvfoi7np"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://1kh6tvfoi7np"]
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_rtuux"]
+[ext_resource type="Texture2D" uid="uid://b5k3hi4q8dh1w" path="res://assets/graphics/food/makis/salmon_uramaki.png" id="1_ugvwa"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="2_f2gmj"]
 [ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_tdyjc"]
 [ext_resource type="Resource" uid="uid://di2wgb3nyc3tj" path="res://assets/resources/ingredients/seaweed.tres" id="3_ugvwa"]
@@ -8,5 +9,6 @@
 
 [resource]
 script = ExtResource("2_tdyjc")
+icon = ExtResource("1_ugvwa")
 name = "Salmon Uramaki"
 ing_input = Array[ExtResource("1_rtuux")]([ExtResource("2_f2gmj"), ExtResource("3_ugvwa"), ExtResource("4_7wkv0")])

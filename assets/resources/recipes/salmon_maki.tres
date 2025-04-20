@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cpmpxwbc5m3sk"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://cpmpxwbc5m3sk"]
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_8swn4"]
+[ext_resource type="Texture2D" uid="uid://bs1bnqcr5eocl" path="res://assets/graphics/food/makis/salmon_maki.png" id="1_fbpyp"]
 [ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_rwood"]
 [ext_resource type="Resource" uid="uid://di2wgb3nyc3tj" path="res://assets/resources/ingredients/seaweed.tres" id="2_yv8kx"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="3_fbpyp"]
@@ -8,5 +9,6 @@
 
 [resource]
 script = ExtResource("2_rwood")
+icon = ExtResource("1_fbpyp")
 name = "Salmon Maki"
 ing_input = Array[ExtResource("1_8swn4")]([ExtResource("2_yv8kx"), ExtResource("3_fbpyp"), ExtResource("4_633rt")])
