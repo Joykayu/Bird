@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://1su62o1n2vq4"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://1su62o1n2vq4"]
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_sgkd3"]
+[ext_resource type="Texture2D" uid="uid://b7hw2243a7q8f" path="res://assets/graphics/food/ingredients/rice.png" id="1_uf4ml"]
 
 [resource]
 script = ExtResource("1_sgkd3")
+icon = ExtResource("1_uf4ml")
 name = "Rice"
 metadata/_custom_type_script = "uid://bmdjnw0cjk1fa"

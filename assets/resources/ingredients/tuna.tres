@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://w63tc2tn3isc"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://w63tc2tn3isc"]
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_c0qwu"]
+[ext_resource type="Texture2D" uid="uid://cglrmkwindmqi" path="res://assets/graphics/food/ingredients/tuna.png" id="1_c41eq"]
 
 [resource]
 script = ExtResource("1_c0qwu")
+icon = ExtResource("1_c41eq")
 name = "Tuna"
 metadata/_custom_type_script = "uid://bmdjnw0cjk1fa"

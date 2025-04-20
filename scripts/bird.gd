@@ -65,7 +65,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("flap_left") and Input.is_action_pressed("flap_right"):
 			increment_velocity(speed)
-			pass
+			angular_velocity = 0
 			
 		elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
 			increment_velocity(speed_turning) 

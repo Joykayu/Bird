@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cadvkucrpsvfl"
-path="res://.godot/imported/salmon_sashimi.png-b6d9898c9f758bc3f917cf9e8f8dca67.ctex"
+uid="uid://cthwjqtl8a4uy"
+path="res://.godot/imported/tuna0.png-958728eb4c0943e1f6acd6e628dea21c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ingredients/item_icons/salmon_sashimi.png"
-dest_files=["res://.godot/imported/salmon_sashimi.png-b6d9898c9f758bc3f917cf9e8f8dca67.ctex"]
+source_file="res://assets/graphics/food/ingredients/tuna0.png"
+dest_files=["res://.godot/imported/tuna0.png-958728eb4c0943e1f6acd6e628dea21c.ctex"]
 
 [params]
 
