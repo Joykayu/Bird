@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvbegdmg1yj3s"
-path="res://.godot/imported/rice_tile.png-8089c319a33e5635e588d841cd23b42b.ctex"
+uid="uid://bleqk6i858epi"
+path="res://.godot/imported/algae_green.png-ce72ad9a1eebd0f93a73683f1952f2d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ingredients/tiles/rice_tile.png"
-dest_files=["res://.godot/imported/rice_tile.png-8089c319a33e5635e588d841cd23b42b.ctex"]
+source_file="res://assets/graphics/ingredients/collectibles/algae_green.png"
+dest_files=["res://.godot/imported/algae_green.png-ce72ad9a1eebd0f93a73683f1952f2d8.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_42gt3"]
 [ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="1_ftm8f"]
-[ext_resource type="Texture2D" uid="uid://cadvkucrpsvfl" path="res://assets/graphics/ingredients/salmon_sashimi.png" id="1_ry8vj"]
+[ext_resource type="Texture2D" uid="uid://cadvkucrpsvfl" path="res://assets/graphics/ingredients/item_icons/salmon_sashimi.png" id="1_ry8vj"]
 [ext_resource type="Resource" uid="uid://77vyk8xu0hwo" path="res://assets/resources/ingredients/salmon.tres" id="2_ry8vj"]
 
 [resource]

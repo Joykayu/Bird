@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hh2fee2dsmey"
-path="res://.godot/imported/seaweed_tile.png-b851e94bd13bfd44b58205af8bd300c9.ctex"
+uid="uid://c6gmjj14a5x25"
+path="res://.godot/imported/sand6.png-23c7b51f7be3706bb3dc9a1b8a479898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ingredients/tiles/seaweed_tile.png"
-dest_files=["res://.godot/imported/seaweed_tile.png-b851e94bd13bfd44b58205af8bd300c9.ctex"]
+source_file="res://assets/graphics/sand/sand6.png"
+dest_files=["res://.godot/imported/sand6.png-23c7b51f7be3706bb3dc9a1b8a479898.ctex"]
 
 [params]
 

@@ -15,10 +15,25 @@ run/main_scene="uid://bthbt0ov64j4q"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalInventory="*res://scripts/global_inventory.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[file_customization]
+
+folder_colors={
+"res://assets/audio/": "yellow",
+"res://assets/graphics/": "red",
+"res://assets/resources/": "orange",
+"res://exports/": "gray",
+"res://scenes/": "teal",
+"res://scripts/": "blue"
+}
 
 [input]
 
