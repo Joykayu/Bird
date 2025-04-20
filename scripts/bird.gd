@@ -26,8 +26,9 @@ var drag := 1.0
 
 
 
-var zoomout := 0.8
-var zoomout_speed := 5.0
+var max_zoomout := 0.4
+var zoomout_speed := 0.5
+var zoomin_speed := 0.1
 
 var angular_velocity := 0.0
 var input_lag := 0.0
@@ -86,8 +87,17 @@ func _physics_process(delta):
 	velocity = -(transform.y).normalized() * velocity.length()
 	velocity = lerp(velocity, Vector2.ZERO, delta * drag)
 	
-	var target_zoom = Vector2.ONE * clampf(((zoomout-1)/max_velocity * velocity.length() + 1),zoomout,1.0)
-	$Camera2D.zoom = lerp($Camera2D.zoom, target_zoom, zoomout_speed * delta)
+	
+	
+	# 0.6*max velocity so that it doesn't start zoomin directly
+	var target_zoom = Vector2.ONE * clampf(((max_zoomout-1)/(0.6*max_velocity) * velocity.length() + 1),max_zoomout,1.0)
+	
+	# zoom-in
+	if $Camera2D.zoom.length() < target_zoom.length():
+		$Camera2D.zoom = lerp($Camera2D.zoom, target_zoom, zoomin_speed * delta)
+	# zoom-out, but only if speed
+	else:
+		$Camera2D.zoom = lerp($Camera2D.zoom, target_zoom, zoomout_speed * delta)
 	
 	if self.velocity.length() > 0 :
 		move_and_slide()
