@@ -24,3 +24,7 @@ polygon = PackedVector2Array(-4, -71, 3, -71, 26, -43, 14, -33, -14, -33, -26, -
 position = Vector2(0, 13)
 scale = Vector2(2, 2)
 occluder = SubResource("OccluderPolygon2D_3po83")
+
+[node name="DashCD" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
