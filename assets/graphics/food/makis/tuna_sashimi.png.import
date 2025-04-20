@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bleqk6i858epi"
-path="res://.godot/imported/algae_green.png-ce72ad9a1eebd0f93a73683f1952f2d8.ctex"
+uid="uid://dceytolnspdxk"
+path="res://.godot/imported/tuna_sashimi.png-5ddb8f6d4467847e94b76975f6c9ba41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/ingredients/collectibles/algae_green.png"
-dest_files=["res://.godot/imported/algae_green.png-ce72ad9a1eebd0f93a73683f1952f2d8.ctex"]
+source_file="res://assets/graphics/food/makis/tuna_sashimi.png"
+dest_files=["res://.godot/imported/tuna_sashimi.png-5ddb8f6d4467847e94b76975f6c9ba41.ctex"]
 
 [params]
 

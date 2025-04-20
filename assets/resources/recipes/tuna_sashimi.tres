@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://c7p1ugi7nb0y0"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://c7p1ugi7nb0y0"]
 
+[ext_resource type="Texture2D" uid="uid://dceytolnspdxk" path="res://assets/graphics/food/makis/tuna_sashimi.png" id="1_8l0pd"]
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_sftf5"]
 [ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_8l0pd"]
+[ext_resource type="Resource" uid="uid://w63tc2tn3isc" path="res://assets/resources/ingredients/tuna.tres" id="3_d6w4h"]
 
 [resource]
 script = ExtResource("2_8l0pd")
-name = ""
-input = Array[ExtResource("1_sftf5")]([])
+icon = ExtResource("1_8l0pd")
+name = "Tuna Sashimi"
+ing_input = Array[ExtResource("1_sftf5")]([ExtResource("3_d6w4h"), ExtResource("3_d6w4h"), ExtResource("3_d6w4h")])
 metadata/_custom_type_script = "uid://xxgxbfsyoyn2"

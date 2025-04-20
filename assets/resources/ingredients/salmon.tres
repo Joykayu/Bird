@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://77vyk8xu0hwo"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://77vyk8xu0hwo"]
 
+[ext_resource type="Texture2D" uid="uid://benlysh6t07kq" path="res://assets/graphics/food/ingredients/salmon.png" id="1_71fkm"]
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_hk5nc"]
 
 [resource]
 script = ExtResource("1_hk5nc")
+icon = ExtResource("1_71fkm")
 name = "Salmon"
 metadata/_custom_type_script = "uid://bmdjnw0cjk1fa"

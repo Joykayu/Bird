@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://baugln1dr0ue2"]
 
 [ext_resource type="PackedScene" uid="uid://cbwytfi2eim5h" path="res://scenes/collectible.tscn" id="1_riu74"]
-[ext_resource type="Texture2D" uid="uid://bleqk6i858epi" path="res://assets/graphics/ingredients/collectibles/algae_green.png" id="2_spjjx"]
+[ext_resource type="Texture2D" uid="uid://bleqk6i858epi" path="res://assets/graphics/food/collectibles/algae_green.png" id="2_spjjx"]
 [ext_resource type="Resource" uid="uid://di2wgb3nyc3tj" path="res://assets/resources/ingredients/seaweed.tres" id="2_wxdpm"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_spjjx"]
