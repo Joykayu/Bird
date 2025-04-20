@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxj782i6sm6xe"]
+
+[ext_resource type="PackedScene" uid="uid://cbwytfi2eim5h" path="res://scenes/collectible.tscn" id="1_xftfv"]
+[ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="2_jc68v"]
+[ext_resource type="Texture2D" uid="uid://b50bl75g03a38" path="res://assets/graphics/food/collectibles/rice_bag_red.png" id="3_wfa5u"]
+
+[node name="RiceBag" instance=ExtResource("1_xftfv")]
+ingredient = ExtResource("2_jc68v")
+
+[node name="CollisionPolygon2D" parent="Area2D" index="0"]
+polygon = PackedVector2Array(-41, -52, -56, -5, -55, 57, 56, 61, 56, -48)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_wfa5u")

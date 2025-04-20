@@ -1,13 +1,15 @@
-[gd_scene load_steps=72 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=74 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
 [ext_resource type="Material" uid="uid://dbp67pd0hl0fu" path="res://assets/graphics/water/water_shader_material.tres" id="2_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bnr03rwxunan5" path="res://assets/graphics/caillou_vole_honteusement.png" id="3_tipki"]
 [ext_resource type="Shader" uid="uid://cbpruu6nhdjb3" path="res://scripts/shadow_simple.gdshader" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c5soxa1iqkjrb" path="res://assets/graphics/sand/sand_atlas.png" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dafriegrp5lt8" path="res://scenes/fish.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dxj782i6sm6xe" path="res://scenes/rice_bag.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://baugln1dr0ue2" path="res://scenes/seaweed.tscn" id="7_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -836,6 +838,7 @@ shader_parameter/angle = 0.0
 shader_parameter/max_dist = 100.0
 
 [node name="Main" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -885,21 +888,41 @@ offset_top = -3338.0
 offset_right = 6224.0
 offset_bottom = 4662.0
 
-[node name="TileMapRocks" type="TileMapLayer" parent="World/Shadow"]
+[node name="TileMapRocks" type="TileMapLayer" parent="World"]
 texture_filter = 3
-position = Vector2(3775, 3336)
+position = Vector2(-1, -2)
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAPAAwAAAAGAAIAAAAPAA0AAAABAAUAAAAQAA4AAAAEAAUAAAARAA4AAAACAAYAAAASAA4AAAAAAAYAAAASAA0AAAACAAUAAAATAA0AAAAFAAIAAAATAAwAAAACAAAAAAASAAsAAAACAAAAAAARAAsAAAABAAAAAAAQAAsAAAABAAAAAAAPAAsAAAAAAAAAAAAOAAwAAAAAAAAAAAANAA0AAAAAAAAAAAANAA4AAAAAAAIAAAAOAA8AAAAAAAEAAAAOABAAAAAAAAIAAAAPABAAAAABAAIAAAAQABAAAAABAAIAAAARABAAAAAGAAEAAAASABAAAAABAAYAAAATABAAAAAFAAEAAAAUAA8AAAAFAAEAAAAVAA8AAAACAAIAAAAVAA4AAAACAAEAAAAVAA0AAAACAAAAAAAUAA0AAAABAAAAAAASAAwAAAAFAAIAAAAQAAwAAAAAAAUAAAARAAwAAAABAAYAAAAOAA0AAAAGAAIAAAAOAA4AAAAGAAEAAAAPAA4AAAAEAAYAAAAPAA8AAAADAAUAAAAQAA8AAAABAAUAAAARAA0AAAAEAAUAAAAQAA0AAAACAAUAAAARAA8AAAAFAAYAAAASAA8AAAAFAAUAAAATAA4AAAAFAAYAAAATAA8AAAADAAYAAAAUAA4AAAAFAAUAAAAUABAAAAACAAIAAAATABEAAAACAAIAAAASABEAAAABAAIAAAARABEAAAAAAAIAAAAZAP7/AAAAAAAAAAAZAP//AAAGAAIAAAAYAAAAAAAEAAUAAAAYAAEAAAABAAYAAAAYAAIAAAAEAAYAAAAYAAMAAAABAAYAAAAYAAQAAAAFAAYAAAAZAAQAAAAAAAUAAAAZAAMAAAAEAAUAAAAZAAIAAAABAAEAAAAZAAEAAAABAAYAAAAYAP//AAABAAAAAAAXAP//AAAAAAAAAAAXAAAAAAAAAAEAAAAXAAEAAAAAAAEAAAAXAAIAAAAGAAIAAAAXAAMAAAAEAAYAAAAXAAQAAAACAAUAAAAXAAUAAAABAAUAAAAYAAUAAAAAAAYAAAAZAAAAAAAAAAYAAAAYAAYAAAAEAAYAAAAZAAUAAAAAAAUAAAAZAAcAAAACAAYAAAAZAAgAAAABAAEAAAAZAAYAAAAEAAUAAAAYAAgAAAAFAAUAAAAYAAkAAAAFAAUAAAAYAAoAAAAIAAEAAAAYAAsAAAADAAIAAAAYAAcAAAAEAAYAAAAXAAYAAAAGAAEAAAAXAAcAAAAAAAEAAAAXAAgAAAAAAAEAAAAXAAkAAAAAAAEAAAAXAAoAAAAAAAIAAAAZAAkAAAAFAAEAAAAaAAgAAAACAAEAAAAZAAoAAAACAAIAAAAaAAkAAAACAAIAAAAaAAcAAAACAAEAAAAaAAYAAAACAAEAAAAaAAUAAAACAAEAAAAaAAQAAAACAAEAAAAaAAMAAAACAAEAAAAaAAIAAAACAAEAAAAaAAEAAAACAAEAAAAaAAAAAAACAAEAAAAaAP//AAACAAEAAAAaAP7/AAACAAAAAAAWAAIAAAAAAAAAAAAWAAMAAAAGAAIAAAAWAAQAAAACAAYAAAAVAAQAAAAEAAUAAAAVAAUAAAABAAYAAAAWAAUAAAABAAEAAAAVAAMAAAABAAAAAAAVAAYAAAABAAIAAAAWAAYAAAABAAIAAAAUAAMAAAABAAAAAAAUAAQAAAACAAUAAAAUAAUAAAACAAUAAAATAAQAAAABAAUAAAATAAUAAAAGAAEAAAATAAYAAAAAAAIAAAAUAAYAAAABAAIAAAASAAQAAAAGAAEAAAASAAUAAAAAAAIAAAATAAMAAAABAAAAAAASAAMAAAABAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAIAAAAIAAIAAAADAAUAAAAIAAEAAAABAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAQAAAACAAUAAAAJAAQAAAAFAAUAAAAKAAQAAAACAAEAAAAKAAMAAAACAAEAAAAKAAIAAAACAAAAAAAJAAIAAAAFAAIAAAAJAAEAAAACAAAAAAAIAAMAAAABAAUAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAUAAAABAAUAAAAJAAUAAAAEAAUAAAAKAAUAAAACAAEAAAAJAAMAAAACAAUAAAAHAAYAAAAAAAIAAAAIAAYAAAABAAIAAAAJAAcAAAAEAAEAAAAJAAgAAAADAAIAAAAKAAcAAAACAAIAAAAKAAYAAAACAAEAAAAJAAYAAAAGAAEAAAAMAAoAAAADAAMAAAAKAAwAAAADAAMAAAA=")
 tile_set = SubResource("TileSet_choun")
 
-[node name="Seaweed" parent="World" instance=ExtResource("7_o6xl0")]
+[node name="Collectibles" type="Node" parent="World"]
+
+[node name="Seaweed" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
 position = Vector2(978, 322)
 
-[node name="Seaweed2" parent="World" instance=ExtResource("7_o6xl0")]
-position = Vector2(978, 127)
+[node name="Seaweed2" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(969, -332)
 
-[node name="Seaweed3" parent="World" instance=ExtResource("7_o6xl0")]
+[node name="Seaweed3" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
 position = Vector2(978, -55)
+
+[node name="Fish" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(632, -376)
+
+[node name="Fish2" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(900, -597)
+
+[node name="Fish3" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(398, -779)
+
+[node name="RiceBag" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1627, -536)
+
+[node name="RiceBag2" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1134, -780)
+
+[node name="RiceBag3" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1308, -495)
 
 [node name="Bird" parent="World" instance=ExtResource("1_o5qli")]
 material = SubResource("ShaderMaterial_o6xl0")
@@ -908,6 +931,7 @@ scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="World/Bird"]
 position = Vector2(0, -0.5)
+zoom = Vector2(0.7, 0.7)
 process_callback = 0
 limit_left = -3380
 limit_top = -3120
@@ -937,25 +961,57 @@ anchor_right = 1.0
 grow_horizontal = 2
 
 [node name="Slot0" type="Control" parent="UI/Inventory"]
+texture_filter = 1
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Inventory/Slot0"]
-texture = ExtResource("3_sugp2")
+[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot0"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_85g3d")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot0"]
+scale = Vector2(4, 4)
 centered = false
 
 [node name="Slot1" type="Control" parent="UI/Inventory"]
+texture_filter = 1
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Inventory/Slot1"]
-texture = ExtResource("3_sugp2")
+[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot1"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_85g3d")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot1"]
+scale = Vector2(4, 4)
 centered = false
 
 [node name="Slot2" type="Control" parent="UI/Inventory"]
+texture_filter = 1
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/Inventory/Slot2"]
-texture = ExtResource("3_sugp2")
+[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot2"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_85g3d")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot2"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="FinalSlot" type="Control" parent="UI/Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
+scale = Vector2(4, 4)
+texture = ExtResource("9_85g3d")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
+scale = Vector2(4, 4)
 centered = false

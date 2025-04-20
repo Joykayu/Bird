@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dafriegrp5lt8"]
+
+[ext_resource type="PackedScene" uid="uid://cbwytfi2eim5h" path="res://scenes/collectible.tscn" id="1_8g0i4"]
+[ext_resource type="Texture2D" uid="uid://d3a6jg5okkx7n" path="res://assets/graphics/food/collectibles/fish_red.png" id="2_nub35"]
+[ext_resource type="Resource" uid="uid://77vyk8xu0hwo" path="res://assets/resources/ingredients/salmon.tres" id="2_pgks6"]
+
+[node name="Fish" instance=ExtResource("1_8g0i4")]
+ingredient = ExtResource("2_pgks6")
+
+[node name="CollisionPolygon2D" parent="Area2D" index="0"]
+polygon = PackedVector2Array(-16, 60, -40, 8, -8, -60, 8, -60, 40, 0, 16, 60)
+
+[node name="Sprite2D" parent="." index="1"]
+texture_filter = 1
+texture = ExtResource("2_nub35")

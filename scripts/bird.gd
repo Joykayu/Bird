@@ -25,10 +25,11 @@ var drag := 1.0
 
 
 
-
+@onready var min_zoomout : float = $Camera2D.zoom.x
 var max_zoomout := 0.4
 var zoomout_speed := 0.5
 var zoomin_speed := 0.1
+
 
 var angular_velocity := 0.0
 var input_lag := 0.0
@@ -90,7 +91,7 @@ func _physics_process(delta):
 	
 	
 	# 0.6*max velocity so that it doesn't start zoomin directly
-	var target_zoom = Vector2.ONE * clampf(((max_zoomout-1)/(0.6*max_velocity) * velocity.length() + 1),max_zoomout,1.0)
+	var target_zoom = Vector2.ONE * clampf(((max_zoomout-1)/(0.6*max_velocity) * velocity.length() + min_zoomout),max_zoomout,1.0)
 	
 	# zoom-in
 	if $Camera2D.zoom.length() < target_zoom.length():
