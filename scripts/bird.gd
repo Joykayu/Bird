@@ -1,26 +1,30 @@
 extends CharacterBody2D
 
 
+var max_velocity := 800
 
-# 
-var start_y_positions := [0,0]
-var current_y_positions := [0,0]
 
-var is_dragging := [false, false]
-
-var dash_threshold := 25
+var dash_duration := 0.3
+var dash_speed := max_velocity * 2
 var is_dashing := false
+var dash_timer = 0
 var is_dash_cooling_down := false
-var dash_cooldown_duration := 1 
+var dash_cooldown_duration := 2
 
 # Variables for player movement - Change to change the feel
 var speed := 200
-var dash_speed := 400
-var speed_turning := 50
-var rot_speed := 4.5
+
+
+
+var speed_turning := 200
+
+var rot_speed := 4.0
+var rot_drag := 3.0
+
 var drag := 1.0
-var rot_drag := 4.0 
-var max_velocity := 550
+
+
+
 
 var zoomout := 0.8
 var zoomout_speed := 5.0
@@ -32,48 +36,55 @@ var counting_lag := false
 var turning_left: bool = false
 var turning_right: bool = false
 
+
+func _ready()->void:
+
+	$DashCD.wait_time = dash_cooldown_duration
+
 func _physics_process(delta):
-	#if Input.is_action_just_pressed("ui_left"):
-		#%LeftButton.emit_signal("pressed")
-	#if Input.is_action_just_pressed("ui_right"):
-		#%RightButton.emit_signal("pressed")
+	
+	if is_dashing:
+		# incrpeent time in dash
+		dash_timer += delta
+		# check if dash is finished
+		if dash_timer > dash_duration:
+			is_dashing = false
+			dash_timer = 0
+			velocity = -(transform.y).normalized() * max_velocity
+			# start cd
+			$DashCD.start()
+			
+		else:
+			# if not finished, set speed to dash speed
+			velocity = -(transform.y).normalized() * dash_speed
 	
 	if counting_lag :
 		input_lag += delta
 
 	if input_lag > 0.05:
 		
-		for index in range(0, len(start_y_positions)) :
-			if abs(current_y_positions[index] - start_y_positions[index]) > dash_threshold:
-				is_dashing = true
-				
-		if is_dashing:
-			velocity -= transform.y * dash_speed
+		if Input.is_action_pressed("flap_left") and Input.is_action_pressed("flap_right"):
+			increment_velocity(speed)
+			pass
 			
-		else:
-			if Input.is_action_pressed("flap_left") and Input.is_action_pressed("flap_right"):
-				velocity -= transform.y * speed
-				
-			elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
-				velocity -= transform.y * speed_turning
-				
+		elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
+			increment_velocity(speed_turning) 
+			
 			var rotation_direction = int(Input.is_action_pressed("flap_right")) - int(Input.is_action_pressed("flap_left"))
 			angular_velocity = rotation_direction * rot_speed
 		
-		is_dashing = false
 		counting_lag = false
 		input_lag = 0
 		Input.action_release("flap_left")
 		Input.action_release("flap_right")
-		
-		start_y_positions = [0,0]
-		current_y_positions = [0,0]
 	
-
 	
-	velocity = lerp(velocity, Vector2.ZERO, delta * drag)
 	angular_velocity = lerp(angular_velocity, 0.0, delta * rot_drag)
 	rotation += angular_velocity * delta
+	
+	# set drag 
+	velocity = -(transform.y).normalized() * velocity.length()
+	velocity = lerp(velocity, Vector2.ZERO, delta * drag)
 	
 	var target_zoom = Vector2.ONE * clampf(((zoomout-1)/max_velocity * velocity.length() + 1),zoomout,1.0)
 	$Camera2D.zoom = lerp($Camera2D.zoom, target_zoom, zoomout_speed * delta)
@@ -83,36 +94,33 @@ func _physics_process(delta):
 
 
 func _input(event):	
-	# is it a screen touch? is it the beginning of it?
-	if event is InputEventScreenTouch:
-		if event.is_pressed():
-			if event.position.x < get_viewport_rect().get_center().x:
-				Input.action_press("flap_left")
-			else:
-				Input.action_press("flap_right")
-			
-			# start counting lag
-			counting_lag = true
 	
+	if is_dashing:
+		return
 	
-	if event is InputEventScreenDrag:
-		counting_lag = true
-		if event.is_released(): 
-			is_dragging[event.index] = false
-			
-		if !is_dragging[event.index]:
-			# register start position		
-			start_y_positions[event.index] = event.position.y
-			is_dragging[event.index] = true
-			
-		# export current position for this touch/drag
-		current_y_positions[event.index] =  event.position.y
-		
 	if event is InputEventKey:
-		counting_lag = true
 		if event.is_action_pressed("keyboard_left"):
 			Input.action_press("flap_left")
+			counting_lag = true
 		if event.is_action_pressed("keyboard_right"):
 			Input.action_press("flap_right")
+			counting_lag = true
 		if event.is_action_pressed("keyboard_dash"):
+			if !$DashCD.is_stopped():
+				return
+			
+			counting_lag = true
 			is_dashing = true
+			dash_timer = 0
+			
+			
+func increment_velocity (increment: float):
+	var new_velocity_length = velocity.length() + increment
+	
+	if new_velocity_length > max_velocity:
+		velocity = - transform.y.normalized() * max_velocity
+		return
+	
+	velocity = - transform.y.normalized() * new_velocity_length
+	
+	#
