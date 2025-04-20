@@ -9,5 +9,5 @@
 script = ExtResource("1_ftm8f")
 icon = ExtResource("1_ry8vj")
 name = "Salmon Sahimi"
-input = Array[ExtResource("1_42gt3")]([ExtResource("2_ry8vj"), ExtResource("2_ry8vj"), ExtResource("2_ry8vj")])
+ing_input = Array[ExtResource("1_42gt3")]([ExtResource("2_ry8vj"), ExtResource("2_ry8vj"), ExtResource("2_ry8vj")])
 metadata/_custom_type_script = "uid://xxgxbfsyoyn2"

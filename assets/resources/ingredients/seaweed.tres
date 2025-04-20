@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://di2wgb3nyc3tj"]
 
-[ext_resource type="Texture2D" uid="uid://bleqk6i858epi" path="res://assets/graphics/ingredients/collectibles/algae_green.png" id="1_o83m3"]
+[ext_resource type="Texture2D" uid="uid://bsxqgqd3t76e7" path="res://assets/graphics/food/ingredients/nori.png" id="1_o83m3"]
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_qev60"]
 
 [resource]

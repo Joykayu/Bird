@@ -602,7 +602,7 @@ normal = Vector2(-1, 0)
 shader = ExtResource("4_tefeu")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/angle = 102.857
-shader_parameter/max_dist = 0.3
+shader_parameter/max_dist = 9.867
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("4_tefeu")
@@ -660,13 +660,6 @@ offset_top = -3338.0
 offset_right = 6224.0
 offset_bottom = 4662.0
 
-[node name="WaterShader" type="ColorRect" parent="World"]
-material = ExtResource("2_tbgi4")
-offset_left = -3776.0
-offset_top = -3338.0
-offset_right = 6224.0
-offset_bottom = 4662.0
-
 [node name="Seaweed" parent="World" instance=ExtResource("7_o6xl0")]
 position = Vector2(978, 322)
 
@@ -682,7 +675,6 @@ position = Vector2(982, 584)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="World/Bird"]
-visible = false
 process_callback = 0
 limit_left = -3380
 limit_top = -3120
@@ -695,8 +687,14 @@ drag_left_margin = 0.4
 drag_right_margin = 0.4
 editor_draw_drag_margin = true
 
+[node name="WaterShader" type="ColorRect" parent="World"]
+material = ExtResource("2_tbgi4")
+offset_left = -3776.0
+offset_top = -3338.0
+offset_right = 6224.0
+offset_bottom = 4662.0
+
 [node name="WaterUP" type="ColorRect" parent="World"]
-visible = false
 self_modulate = Color(0.3066, 0.56064, 0.73, 0.25098)
 offset_left = -3776.0
 offset_top = -3338.0
