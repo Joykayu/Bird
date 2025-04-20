@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=15 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Material" uid="uid://dbp67pd0hl0fu" path="res://assets/graphics/water/water_shader_material.tres" id="2_tbgi4"]
@@ -6,11 +6,6 @@
 [ext_resource type="Script" uid="uid://dvt7nshyng77y" path="res://scripts/touchscreen_dash_button.gd" id="4_jyhfs"]
 [ext_resource type="Shader" uid="uid://cbpruu6nhdjb3" path="res://scripts/shadow_simple.gdshader" id="4_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c5soxa1iqkjrb" path="res://assets/graphics/sand/sand_atlas.png" id="5_tbgi4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tefeu"]
-shader = ExtResource("4_tefeu")
-shader_parameter/shadow_offset = Vector2(10, 10)
-shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -36,21 +31,17 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tipki"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
+shader = ExtResource("4_tefeu")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = 257.143
+shader_parameter/max_dist = 10.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("4_tefeu")
-shader_parameter/shadow_offset = Vector2(10, 10)
-shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
-
-[sub_resource type="Gradient" id="Gradient_tefeu"]
-offsets = PackedFloat32Array(0, 0.22963, 1)
-colors = PackedColorArray(0.48, 0.48, 0.48, 0, 0.48, 0.48, 0.48, 0.556863, 0.480614, 0.480614, 0.480614, 0.571585)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_o6xl0"]
-gradient = SubResource("Gradient_tefeu")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/angle = 0.0
+shader_parameter/max_dist = 100.0
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -60,13 +51,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-material = SubResource("ShaderMaterial_tefeu")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 texture_filter = 3
@@ -92,8 +76,15 @@ shape = SubResource("WorldBoundaryShape2D_o6xl0")
 position = Vector2(5865, 4417)
 shape = SubResource("WorldBoundaryShape2D_tipki")
 
-[node name="Water1" type="ColorRect" parent="."]
-visible = false
+[node name="Shadow" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tipki")
+layout_mode = 0
+offset_left = -3776.0
+offset_top = -3338.0
+offset_right = 6224.0
+offset_bottom = 4662.0
+
+[node name="WaterShader" type="ColorRect" parent="."]
 material = ExtResource("2_tbgi4")
 layout_mode = 0
 offset_left = -3776.0
@@ -119,9 +110,8 @@ drag_left_margin = 0.4
 drag_right_margin = 0.4
 editor_draw_drag_margin = true
 
-[node name="Water2" type="ColorRect" parent="."]
-visible = false
-self_modulate = Color(0, 0.396667, 0.68, 0.498039)
+[node name="WaterUP" type="ColorRect" parent="."]
+self_modulate = Color(0.3066, 0.56064, 0.73, 0.25098)
 layout_mode = 0
 offset_left = -3776.0
 offset_top = -3338.0
@@ -144,12 +134,5 @@ grow_vertical = 0
 texture_normal = ExtResource("3_sugp2")
 visibility_mode = 1
 script = ExtResource("4_jyhfs")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-position = Vector2(-3720, -3252)
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_o6xl0")
-texture_scale = 36.23
 
 [connection signal="resized" from="UI/CenterContainer" to="UI/CenterContainer/TouchScreenDashButton" method="_on_center_container_resized"]

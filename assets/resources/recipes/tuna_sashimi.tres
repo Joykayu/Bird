@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://c7p1ugi7nb0y0"]
+
+[ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_sftf5"]
+[ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_8l0pd"]
+
+[resource]
+script = ExtResource("2_8l0pd")
+name = ""
+input = Array[ExtResource("1_sftf5")]([])
+metadata/_custom_type_script = "uid://xxgxbfsyoyn2"

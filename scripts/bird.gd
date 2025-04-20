@@ -16,13 +16,16 @@ var dash_cooldown_duration := 1
 # Variables for player movement - Change to change the feel
 var speed := 200
 var dash_speed := 400
-var turning_speed := 50
+var speed_turning := 50
 var rot_speed := 4.5
 var drag := 1.0
-var rot_drag := 4.0
+var rot_drag := 4.0 
+var max_velocity := 550
+
+var zoomout := 0.8
+var zoomout_speed := 5.0
 
 var angular_velocity := 0.0
-
 var input_lag := 0.0
 var counting_lag := false
 
@@ -52,11 +55,11 @@ func _physics_process(delta):
 				velocity -= transform.y * speed
 				
 			elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
-				velocity -= transform.y * turning_speed
+				velocity -= transform.y * speed_turning
 				
 			var rotation_direction = int(Input.is_action_pressed("flap_right")) - int(Input.is_action_pressed("flap_left"))
 			angular_velocity = rotation_direction * rot_speed
-			
+		
 		is_dashing = false
 		counting_lag = false
 		input_lag = 0
@@ -66,11 +69,14 @@ func _physics_process(delta):
 		start_y_positions = [0,0]
 		current_y_positions = [0,0]
 	
+
 	
 	velocity = lerp(velocity, Vector2.ZERO, delta * drag)
 	angular_velocity = lerp(angular_velocity, 0.0, delta * rot_drag)
 	rotation += angular_velocity * delta
-
+	
+	var target_zoom = Vector2.ONE * clampf(((zoomout-1)/max_velocity * velocity.length() + 1),zoomout,1.0)
+	$Camera2D.zoom = lerp($Camera2D.zoom, target_zoom, zoomout_speed * delta)
 	
 	if self.velocity.length() > 0 :
 		move_and_slide()
