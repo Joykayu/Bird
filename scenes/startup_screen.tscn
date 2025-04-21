@@ -13,26 +13,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_s1c10")
+metadata/_edit_vertical_guides_ = [1152.0, 288.0, 865.0]
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -267.5
-offset_right = 267.5
-offset_bottom = 55.0
+anchors_preset = -1
+anchor_left = 0.176215
+anchor_top = 0.155864
+anchor_right = 0.818576
+anchor_bottom = 0.240741
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "DESIRAYCHANLAPLUSBELLE"
+theme = ExtResource("3_po68c")
+theme_override_font_sizes/font_size = 60
+text = "DesiRay-Chan, apprentice sushi master"
+metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_left = 0.164063
+anchor_right = 0.386285
 anchor_bottom = 1.0
-offset_right = 256.0
+offset_left = 60.0
+offset_right = 60.0
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer2"]
 custom_minimum_size = Vector2(256, 128)
@@ -61,6 +67,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 602.0
+offset_right = -238.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -73,6 +81,7 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+metadata/_edit_group_ = true
 
 [node name="TutorialButton" type="Button" parent="CenterContainer/NinePatchRect"]
 layout_mode = 1
