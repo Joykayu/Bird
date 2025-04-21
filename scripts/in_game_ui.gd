@@ -1,8 +1,9 @@
 extends Control
 
-var fail_icon = preload("res://assets/graphics/food/makis/cross.png")
 
 @onready var recipe_stars = [%Inventory/FinalSlot/StarsSprite, %Inventory/FinalSlot/StarsSprite2, %Inventory/FinalSlot/StarsSprite3]
+@onready var history_0_stars = [%Inventory/HistorySlot0/StarsSprite, %Inventory/HistorySlot0/StarsSprite2, %Inventory/HistorySlot0/StarsSprite3]
+@onready var history_1_stars = [%Inventory/HistorySlot1/StarsSprite, %Inventory/HistorySlot1/StarsSprite2, %Inventory/HistorySlot1/StarsSprite3]
 
 func update_ingredients_sprite()-> void:
 	if GlobalInventory.slot_0 != null:
@@ -29,12 +30,24 @@ func update_ingredients_sprite()-> void:
 		%Inventory/Slot2/IngredientSprite.texture = null
 		%Inventory/Slot2/StarsSprite.hide()
 
-func update_recipe_sprite(is_successful: bool) -> void:
-	if is_successful == null:
-		%Inventory/FinalSlot/RecipeSprite.texture = null
-	elif is_successful :
+func update_recipe_sprite(go_next) -> void:
+	if !go_next:
 		%Inventory/FinalSlot/RecipeSprite.texture = GlobalInventory.recipe_history[-1].icon
 		for star_idx in range(3):
 			recipe_stars[star_idx].visible = GlobalInventory.recipe_history[-1].quality[star_idx]
 	else:
-		%Inventory/FinalSlot/RecipeSprite.texture = fail_icon
+		# reset recipe 
+		%Inventory/FinalSlot/RecipeSprite.texture = null
+		for star_idx in range(3):
+			recipe_stars[star_idx].visible = false
+			
+		# set recipe history 0
+		%Inventory/HistorySlot0/RecipeSprite.texture = GlobalInventory.recipe_history[-1].icon
+		for star_idx in range(3):
+			history_0_stars[star_idx].visible = GlobalInventory.recipe_history[-1].quality[star_idx]
+		
+		# set recipe history 1
+		if GlobalInventory.recipe_history.size() > 1:
+			%Inventory/HistorySlot1/RecipeSprite.texture = GlobalInventory.recipe_history[-2].icon
+			for star_idx in range(3):
+				history_1_stars[star_idx].visible = GlobalInventory.recipe_history[-2].quality[star_idx]
