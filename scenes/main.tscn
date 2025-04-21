@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=70 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dxj782i6sm6xe" path="res://scenes/rice_bag.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://baugln1dr0ue2" path="res://scenes/seaweed.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="9_85g3d"]
-[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -1025,11 +1024,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Button" type="Button" parent="UI/StartupScreen"]
-layout_mode = 0
-offset_right = 392.0
-offset_bottom = 354.0
-text = "dqdwqd
-"
-icon = ExtResource("11_ya4ey")
