@@ -18,6 +18,8 @@ var recipe_history : Array[Recipe]
 var history_depth : int = 2
 var current_slot_idx := 0 
 
+var failed_recipe = preload("res://assets/resources/recipes/failed_recipe.tres")
+
 signal ing_list_updated()
 signal recipe_crafted(is_new_recipe)
 signal recipe_failed()
@@ -67,7 +69,7 @@ func check_recipe():
 	
 	if !correct_ingredients:
 		recipe_failed.emit()
-		update_score_and_combo(0,false)
+		update_score_and_combo(failed_recipe,false)
 		
 	slot_0 = null
 	slot_1 = null
