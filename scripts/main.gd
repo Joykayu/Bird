@@ -2,6 +2,9 @@ extends Control
 
 var fail_icon = preload("res://assets/graphics/food/makis/cross.png")
 
+
+
+
 func _ready():
 	GlobalInventory.ing_list_updated.connect(on_ing_list_updated)
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)

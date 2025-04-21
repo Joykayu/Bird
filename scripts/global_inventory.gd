@@ -1,5 +1,12 @@
 extends Node
 
+
+
+# init score and combo multiplier
+var score = 0.0
+var combo := 1.0
+
+
 var slot_0 :Ingredient
 var slot_1 :Ingredient
 var slot_2 :Ingredient
@@ -62,6 +69,10 @@ func is_in_history(recipe) -> bool:
 	if recipe_history.slice(max(0,l-history_depth),max(0,l)).has(recipe):
 		return true
 	return false
+
+func update_score(recipe_score) -> void:
+	# add score according to recipe score
+	score += recipe_score * combo 
 
 
 ## Returns an array of full file paths to all resources in the directory at the specified path.
