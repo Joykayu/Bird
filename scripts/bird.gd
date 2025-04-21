@@ -28,7 +28,7 @@ var drag := 1.0
 
 
 @onready var min_zoomout : float = $Camera2D.zoom.x
-var max_zoomout := 0.4
+var max_zoomout := 0.3
 var zoomout_speed := 0.5
 var zoomin_speed := 0.1
 
