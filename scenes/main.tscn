@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
-[ext_resource type="Script" path="res://scenes/game_timer.gd" id="2_qkpxi"]
+[ext_resource type="Script" uid="uid://cft4uce0oeyfi" path="res://scenes/game_timer.gd" id="2_qkpxi"]
 [ext_resource type="Material" uid="uid://dbp67pd0hl0fu" path="res://assets/graphics/water/water_shader_material.tres" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://bnr03rwxunan5" path="res://assets/graphics/caillou_vole_honteusement.png" id="3_tipki"]
 [ext_resource type="Shader" uid="uid://cbpruu6nhdjb3" path="res://scripts/shadow_simple.gdshader" id="4_tefeu"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://yvtvipnhx7gj" path="res://scenes/game_over_screen.tscn" id="12_trceg"]
 [ext_resource type="Texture2D" uid="uid://cl11b5ei0jvyn" path="res://assets/graphics/food/star_honteusement_volee.png" id="13_dp3eg"]
 [ext_resource type="AudioStream" uid="uid://cs4o2vfah87a3" path="res://assets/sounds/music_menu.wav" id="15_jkv2x"]
-[ext_resource type="Script" path="res://scenes/sounds.gd" id="16_5q0nq"]
+[ext_resource type="Script" uid="uid://dflf1tykc2l55" path="res://scenes/sounds.gd" id="16_5q0nq"]
 [ext_resource type="AudioStream" uid="uid://dhpw7b5y244ng" path="res://assets/sounds/music_game.wav" id="16_jbj1t"]
 [ext_resource type="AudioStream" uid="uid://wdgl4ecgbgmu" path="res://assets/sounds/hajime_improved.wav" id="17_yc10j"]
 [ext_resource type="AudioStream" uid="uid://5pavjv0d57d7" path="res://assets/sounds/half_improved.wav" id="18_tel4y"]
