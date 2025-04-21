@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=71 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dxj782i6sm6xe" path="res://scenes/rice_bag.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://baugln1dr0ue2" path="res://scenes/seaweed.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="9_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -836,6 +837,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tipki")
+metadata/_edit_vertical_guides_ = [1152.0, -1.0]
+metadata/_edit_horizontal_guides_ = [648.0, 0.0]
+
+[node name="GameTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 60.0
+one_shot = true
 
 [node name="World" type="Node" parent="."]
 
@@ -924,11 +932,12 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="WaterShader" type="ColorRect" parent="World"]
+visible = false
 material = ExtResource("2_tbgi4")
 offset_left = -3857.0
-offset_top = -3417.0
+offset_top = -3569.0
 offset_right = 6143.0
-offset_bottom = 4583.0
+offset_bottom = 4431.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -993,21 +1002,34 @@ centered = false
 scale = Vector2(4, 4)
 centered = false
 
-[node name="GameTimer" type="Timer" parent="."]
-process_callback = 0
-wait_time = 60.0
-one_shot = true
-
-[node name="StartupScreen" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="GameOverScreen" type="Control" parent="."]
-anchors_preset = 0
-
-[node name="TutorialScreen" type="Control" parent="."]
+[node name="GameOverScreen" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartupScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/StartupScreen"]
+layout_mode = 0
+offset_right = 392.0
+offset_bottom = 354.0
+text = "dqdwqd
+"
+icon = ExtResource("11_ya4ey")

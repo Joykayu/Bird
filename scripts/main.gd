@@ -10,9 +10,11 @@ func _ready():
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.recipe_failed.connect(on_recipe_failed)
 	
-	# start screen
-	
-
+	# show start screen, hide others
+	$UI/StartupScreen.show()
+	$UI/GameOverScreen.hide()
+	$UI/TutorialScreen.hide()
+	$UI/Inventory.hide()
 
 
 func start_game() -> void:
