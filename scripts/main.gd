@@ -10,8 +10,8 @@ func _ready():
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.recipe_failed.connect(on_recipe_failed)
 	
+	# start screen
 	
-	start_game()
 
 
 
