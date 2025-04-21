@@ -71,7 +71,7 @@ func _physics_process(delta):
 			$DashCD.start()
 			
 		else:
-			# if not finished, set speed to dash speed
+			# if not finished, set speed to dash speed			
 			velocity = -(transform.y).normalized() * dash_speed
 	
 	if counting_lag :
@@ -84,6 +84,11 @@ func _physics_process(delta):
 			angular_velocity = 0
 			
 		elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
+			if Input.is_action_pressed("flap_left"):
+				%Sounds/BirdFlap.play()
+			if Input.is_action_pressed("flap_right"):
+				%Sounds/BirdFlip.play()
+				
 			increment_velocity(speed_turning) 
 			
 			var rotation_direction = int(Input.is_action_pressed("flap_right")) - int(Input.is_action_pressed("flap_left"))
@@ -134,6 +139,7 @@ func _input(event):
 			if !$DashCD.is_stopped():
 				return
 			
+			%Sounds/BirdDash.play()
 			counting_lag = true
 			is_dashing = true
 			dash_timer = 0

@@ -7,4 +7,5 @@
 script = ExtResource("1_sgkd3")
 icon = ExtResource("1_uf4ml")
 name = "Rice"
+gather_sound_path = "Sounds/GatherRice"
 metadata/_custom_type_script = "uid://bmdjnw0cjk1fa"

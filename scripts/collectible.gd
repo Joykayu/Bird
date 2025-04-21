@@ -5,6 +5,7 @@ extends Node2D
 @export var ingredient: Ingredient
 
 func collect(is_dashing) -> void:
+	get_node("%"+ingredient.gather_sound_path).play()
 	GlobalInventory.add_ingredient(ingredient, is_dashing)
 	self.hide()
 	$RespawnTimer.start()
