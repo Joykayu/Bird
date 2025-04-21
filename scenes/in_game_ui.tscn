@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1qpk08kd2cfy"]
+
+[ext_resource type="Script" uid="uid://83ubvertj8x8" path="res://scripts/in_game_ui.gd" id="1_a45jx"]
+[ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="1_fnge6"]
+[ext_resource type="Texture2D" uid="uid://cl11b5ei0jvyn" path="res://assets/graphics/food/star_honteusement_volee.png" id="2_a45jx"]
+
+[node name="InGameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a45jx")
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Slot0" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot0"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_fnge6")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot0"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot0"]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="Slot1" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot1"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_fnge6")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot1"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot1"]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="Slot2" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot2"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_fnge6")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot2"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot2"]
+visible = false
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="FinalSlot" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/FinalSlot"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_fnge6")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="Inventory/FinalSlot"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="Inventory/FinalSlot"]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite2" type="Sprite2D" parent="Inventory/FinalSlot"]
+visible = false
+position = Vector2(16, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite3" type="Sprite2D" parent="Inventory/FinalSlot"]
+visible = false
+position = Vector2(32, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_a45jx")
+centered = false

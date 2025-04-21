@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8vkkwnhy7aa"]
+[gd_scene load_steps=9 format=3 uid="uid://cf8vkkwnhy7aa"]
 
 [ext_resource type="Script" uid="uid://bj8bjl387xarb" path="res://scripts/tutorial_screen.gd" id="1_rn67y"]
-[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="2_2xfp7"]
+[ext_resource type="Texture2D" uid="uid://l8xkevorlnyd" path="res://assets/graphics/ui/button.png" id="2_2xfp7"]
+[ext_resource type="Theme" uid="uid://d2xo8y5tjg5ou" path="res://assets/graphics/ui/ui_theme.tres" id="3_6iv2e"]
+[ext_resource type="Texture2D" uid="uid://ci0binlm1isgc" path="res://assets/graphics/ui/left_flap.png" id="3_6t5s3"]
+[ext_resource type="Texture2D" uid="uid://bk4lad2dp08sn" path="res://assets/graphics/ui/right_flap.png" id="4_6t5s3"]
+[ext_resource type="Texture2D" uid="uid://kf3b4gjwlwf6" path="res://assets/graphics/ui/double_flap.png" id="5_owd46"]
+[ext_resource type="Texture2D" uid="uid://bkmjlcu52j4yo" path="res://assets/graphics/ui/dash.png" id="6_5im2b"]
+[ext_resource type="Texture2D" uid="uid://7idvhvqk1ial" path="res://assets/graphics/ui/cutting_board.png" id="7_8ucgo"]
 
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
@@ -12,37 +18,229 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rn67y")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -57.0
-offset_right = 57.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_6iv2e")
 theme_override_font_sizes/font_size = 60
-text = "tutorial screen"
+text = "Tutorial"
 
-[node name="ReturnToStartupScreen" type="TextureButton" parent="."]
-layout_mode = 0
-anchor_left = 0.195312
-anchor_top = 0.225309
-anchor_right = 0.306424
-anchor_bottom = 0.422839
-texture_normal = ExtResource("2_2xfp7")
-metadata/_edit_use_anchors_ = true
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
 
-[node name="return" type="Label" parent="."]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6iv2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_6t5s3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_6iv2e")
+text = "Flap Left Wing"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6iv2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("4_6t5s3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_6iv2e")
+text = "Flap Right Wing"
+horizontal_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6iv2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_owd46")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_6iv2e")
+text = "Flap Both Wings"
+horizontal_alignment = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6iv2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer4"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer4/MarginContainer/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("6_5im2b")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/PanelContainer4/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_6iv2e")
+text = "Dash
+(to get the juicest
+ingredients)"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_6iv2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("7_8ucgo")
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("3_6iv2e")
+text = "Flap Left Wing"
+horizontal_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(540, 64)
+layout_mode = 2
+texture = ExtResource("2_2xfp7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ReturnToStartupScreen" type="Button" parent="VBoxContainer/CenterContainer2/NinePatchRect"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.373457
-anchor_right = 0.539931
-anchor_bottom = 0.501543
-offset_top = 1.52588e-05
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 60
+grow_vertical = 2
+theme = ExtResource("3_6iv2e")
 text = "Return to main menu"
+flat = true
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="ReturnToStartupScreen" to="." method="_on_return_to_startup_screen_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/NinePatchRect/ReturnToStartupScreen" to="." method="_on_return_to_startup_screen_pressed"]

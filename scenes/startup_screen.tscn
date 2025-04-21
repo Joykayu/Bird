@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnwo5j3f4gu2g"]
+[gd_scene load_steps=4 format=3 uid="uid://dnwo5j3f4gu2g"]
 
-[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="1_jamkg"]
 [ext_resource type="Script" uid="uid://cs8g1n84hsapr" path="res://scripts/startup_screen.gd" id="1_s1c10"]
+[ext_resource type="Texture2D" uid="uid://l8xkevorlnyd" path="res://assets/graphics/ui/button.png" id="3_061x2"]
+[ext_resource type="Theme" uid="uid://d2xo8y5tjg5ou" path="res://assets/graphics/ui/ui_theme.tres" id="3_po68c"]
 
 [node name="StartupScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_s1c10")
 
 [node name="Title" type="Label" parent="."]
@@ -24,56 +26,64 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "DESIRAYCHANLAPLUSBELLE"
 
-[node name="StartButton" type="TextureButton" parent="."]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.401235
-anchor_right = 0.111111
-anchor_bottom = 0.598765
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 256.0
 grow_vertical = 2
-texture_normal = ExtResource("1_jamkg")
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer2"]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 2
+texture = ExtResource("3_061x2")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="StartButton" type="Button" parent="CenterContainer2/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_po68c")
+text = "Start"
+flat = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Start" type="Label" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -556.0
-offset_top = 388.0
-offset_right = -453.0
-offset_bottom = 443.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "start"
-
-[node name="TutorialButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_jamkg")
+mouse_filter = 2
 
-[node name="Tutorial" type="Label" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(312, 128)
+layout_mode = 2
+texture = ExtResource("3_061x2")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/NinePatchRect"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -81.0
-offset_top = 388.0
-offset_right = 85.0
-offset_bottom = 443.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
+grow_vertical = 2
+theme = ExtResource("3_po68c")
 text = "Tutorial"
+flat = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="CenterContainer2/NinePatchRect/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/NinePatchRect/TutorialButton" to="." method="_on_tutorial_button_pressed"]
