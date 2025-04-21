@@ -7,8 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            padding: 2em;
-            background-color: #f4f4f4;
+            background-color: transparent;
             color: #333;
         }
 
@@ -18,9 +17,9 @@
 
         #leaderboard {
             max-width: 600px;
-            margin: 2em auto;
+            /* margin: 2em auto; */
             background: white;
-            padding: 1em;
+            /* padding: 1em; */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -34,7 +33,14 @@
         td {
             text-align: left;
             padding: 0.5em;
+        }
+
+        tr {
             border-bottom: 1px solid #ccc;
+        }
+
+        tr:last-child {
+            border-bottom: 0px solid #ccc;
         }
 
         th {
@@ -45,7 +51,6 @@
 
 <body>
 
-    <h1>🏆 Game Leaderboard</h1>
     <div id="leaderboard" style="max-height: 500px; overflow-y: auto;">
         <p>Loading leaderboard...</p>
     </div>
