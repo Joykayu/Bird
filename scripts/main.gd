@@ -11,6 +11,7 @@ func _ready():
 	$CookingTimer.timeout.connect(GlobalInventory.on_cooking_timer_timeout) 
 	# show start screen, hide others
 	show_startup_screen()
+	$Sounds/MusicMenu.play()
 	
 ## UI display functions
 func show_startup_screen() -> void:
@@ -23,6 +24,11 @@ func show_startup_screen() -> void:
 func start_game() -> void:
 	print("start")
 	# show start screen, hide others
+	$Sounds/MusicMenu.stop()
+	$Sounds/MusicGame.play()
+	$Sounds/GameGong.play()
+	$Sounds/GameHajime.play()
+	
 	$UI/GameOverScreen.hide()
 	$UI/TutorialScreen.hide()
 	$UI/InGameUI.show()
