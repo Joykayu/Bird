@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1qpk08kd2cfy"]
+[gd_scene load_steps=9 format=3 uid="uid://b1qpk08kd2cfy"]
 
 [ext_resource type="Script" uid="uid://83ubvertj8x8" path="res://scripts/in_game_ui.gd" id="1_a45jx"]
 [ext_resource type="Texture2D" uid="uid://7idvhvqk1ial" path="res://assets/graphics/ui/cutting_board.png" id="2_6qwj3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dmd6uu1h01go0" path="res://assets/graphics/ui/cutting_board_ingredient.png" id="2_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://78kypav8wafk" path="res://assets/graphics/ui/cutting_board_recipemade.png" id="4_fqvwy"]
 [ext_resource type="Texture2D" uid="uid://fvqsfscavih0" path="res://assets/graphics/ui/cutting_board_history.png" id="5_ria60"]
+[ext_resource type="Texture2D" uid="uid://l8xkevorlnyd" path="res://assets/graphics/ui/button.png" id="7_276nr"]
+[ext_resource type="Theme" uid="uid://d2xo8y5tjg5ou" path="res://assets/graphics/ui/ui_theme.tres" id="8_04xgm"]
 
 [node name="InGameUI" type="Control"]
 layout_mode = 3
@@ -25,6 +27,7 @@ anchor_bottom = 1.0
 offset_top = -100.0
 grow_horizontal = 2
 grow_vertical = 0
+metadata/_edit_lock_ = true
 
 [node name="CutingBoard" type="Control" parent="CenterContainer"]
 layout_mode = 2
@@ -228,3 +231,61 @@ position = Vector2(22, 6)
 scale = Vector2(2, 2)
 texture = ExtResource("2_a45jx")
 centered = false
+
+[node name="CenterContainer2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer2"]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_276nr")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Label" parent="CenterContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_04xgm")
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 60
+text = " : 50"
+
+[node name="Score" type="Label" parent="CenterContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_04xgm")
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 60
+text = "Score : X yums"
+
+[node name="Combo" type="Label" parent="CenterContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_04xgm")
+theme_override_colors/font_color = Color(0.811765, 0.341176, 0.235294, 1)
+theme_override_font_sizes/font_size = 60
+text = "x X COMBO"
+horizontal_alignment = 2

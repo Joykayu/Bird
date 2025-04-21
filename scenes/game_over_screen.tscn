@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_iwahs")
 
 [node name="YourScore" type="Label" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 0
 offset_left = 368.0
