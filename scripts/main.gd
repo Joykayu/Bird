@@ -33,6 +33,9 @@ func start_game() -> void:
 	$UI/TutorialScreen.hide()
 	$UI/InGameUI.show()
 	$UI/StartupScreen.hide()
+	
+	$World/Bird.activate()
+	
 	# Start game timer
 	$GameTimer.start()
 	# Reset score, combo, recipe history, etc
@@ -58,8 +61,10 @@ func end_game() -> void:
 	$Sounds/GameGong.play()
 	$Sounds/GameMate.play()
 	
-	$UI/Inventory.hide()
+	$UI/InGameUI.hide()
 	$UI/GameOverScreen.show()
+	
+	$World/Bird.deactivate()
 	
 func submit_high_score() -> void:
 	print("high score submitted")

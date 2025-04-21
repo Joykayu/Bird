@@ -844,7 +844,6 @@ metadata/_edit_horizontal_guides_ = [648.0, 0.0]
 
 [node name="GameTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 60.0
 one_shot = true
 
 [node name="World" type="Node" parent="."]
