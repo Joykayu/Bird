@@ -2,11 +2,35 @@ extends Control
 
 var fail_icon = preload("res://assets/graphics/food/makis/cross.png")
 
+
+
+
 func _ready():
 	GlobalInventory.ing_list_updated.connect(on_ing_list_updated)
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.recipe_failed.connect(on_recipe_failed)
 	
+	# show start screen, hide others
+	$UI/StartupScreen.show()
+	$UI/GameOverScreen.hide()
+	$UI/TutorialScreen.hide()
+	$UI/Inventory.hide()
+
+
+func start_game() -> void:
+	# Start game timer
+	$GameTimer.start()
+	# Reset score, combo, recipe history, etc
+	GlobalInventory.score = 0.0
+	GlobalInventory.combo = 1.0
+	GlobalInventory.recipe_history = []
+	
+	
+func end_game() -> void:
+	
+	# switch to end screen
+	pass
+
 func on_ing_list_updated() -> void:
 	update_ingredients_sprite()
 

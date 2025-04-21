@@ -836,6 +836,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_tipki")
+metadata/_edit_vertical_guides_ = [1152.0, -1.0]
+metadata/_edit_horizontal_guides_ = [648.0, 0.0]
+
+[node name="GameTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 60.0
+one_shot = true
 
 [node name="World" type="Node" parent="."]
 
@@ -924,11 +931,12 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="WaterShader" type="ColorRect" parent="World"]
+visible = false
 material = ExtResource("2_tbgi4")
 offset_left = -3857.0
-offset_top = -3417.0
+offset_top = -3569.0
 offset_right = 6143.0
-offset_bottom = 4583.0
+offset_bottom = 4431.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -992,3 +1000,27 @@ centered = false
 [node name="RecipeSprite" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
 scale = Vector2(4, 4)
 centered = false
+
+[node name="GameOverScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartupScreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
