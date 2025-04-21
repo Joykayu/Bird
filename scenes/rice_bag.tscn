@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxj782i6sm6xe"]
+[gd_scene load_steps=5 format=3 uid="uid://dxj782i6sm6xe"]
 
 [ext_resource type="PackedScene" uid="uid://cbwytfi2eim5h" path="res://scenes/collectible.tscn" id="1_xftfv"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="2_jc68v"]
 [ext_resource type="Texture2D" uid="uid://b50bl75g03a38" path="res://assets/graphics/food/collectibles/rice_bag_red.png" id="3_wfa5u"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wfa5u"]
+polygon = PackedVector2Array(-10, -14, -10, -13, -11, -13, -11, -7, -12, -7, -12, -4, -13, -4, -13, -3, -14, -3, -14, -1, -15, -1, -15, 9, -14, 9, -14, 13, -15, 13, -15, 14, -16, 14, -16, 15, -15, 15, -15, 16, -12, 16, -12, 15, -10, 15, -10, 16, 9, 16, 9, 15, 10, 15, 10, 16, 14, 16, 14, 15, 15, 15, 15, 14, 14, 14, 14, 13, 13, 13, 13, 9, 14, 9, 14, 2, 13, 2, 13, 1, 14, 1, 14, -7, 15, -7, 15, -8, 16, -8, 16, -11, 15, -11, 15, -12, 14, -12, 14, -13, 6, -13, 6, -14, 0, -14, 0, -13, -2, -13, -2, -14)
+
 [node name="RiceBag" instance=ExtResource("1_xftfv")]
 ingredient = ExtResource("2_jc68v")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="0"]
+scale = Vector2(4, 4)
+occluder = SubResource("OccluderPolygon2D_wfa5u")
 
 [node name="CollisionPolygon2D" parent="Area2D" index="0"]
 polygon = PackedVector2Array(-41, -52, -56, -5, -55, 57, 56, 61, 56, -48)
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("3_wfa5u")

@@ -10,6 +10,7 @@ script = ExtResource("1_bkg8t")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(4, 4)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

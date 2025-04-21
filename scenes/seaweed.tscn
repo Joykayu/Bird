@@ -18,5 +18,4 @@ occluder = SubResource("OccluderPolygon2D_spjjx")
 polygon = PackedVector2Array(-40, -56, -60, 4, -32, 64, 36, 64, 56, 8, 56, -56)
 
 [node name="Sprite2D" parent="." index="2"]
-texture_filter = 1
 texture = ExtResource("2_spjjx")
