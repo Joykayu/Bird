@@ -10,6 +10,7 @@ func _ready():
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.recipe_failed.connect(on_recipe_failed)
 	
+	
 	start_game()
 
 
@@ -24,11 +25,9 @@ func start_game() -> void:
 	
 	
 func end_game() -> void:
+	
 	# switch to end screen
 	pass
-
-
-
 
 func on_ing_list_updated() -> void:
 	update_ingredients_sprite()
