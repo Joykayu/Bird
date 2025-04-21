@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dafriegrp5lt8" path="res://scenes/fish.tscn" id="6_85g3d"]
 [ext_resource type="PackedScene" uid="uid://dxj782i6sm6xe" path="res://scenes/rice_bag.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://baugln1dr0ue2" path="res://scenes/seaweed.tscn" id="7_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://f2flnc067m4u" path="res://scenes/game_ui.tscn" id="10_trceg"]
 [ext_resource type="PackedScene" uid="uid://dnwo5j3f4gu2g" path="res://scenes/startup_screen.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cf8vkkwnhy7aa" path="res://scenes/tutorial_screen.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://yvtvipnhx7gj" path="res://scenes/game_over_screen.tscn" id="12_trceg"]
@@ -941,66 +941,8 @@ offset_bottom = 4431.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Inventory" type="HBoxContainer" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="Slot0" type="Control" parent="UI/Inventory"]
-texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot0"]
-scale = Vector2(4, 4)
-texture = ExtResource("9_85g3d")
-centered = false
-
-[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot0"]
-scale = Vector2(4, 4)
-centered = false
-
-[node name="Slot1" type="Control" parent="UI/Inventory"]
-texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot1"]
-scale = Vector2(4, 4)
-texture = ExtResource("9_85g3d")
-centered = false
-
-[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot1"]
-scale = Vector2(4, 4)
-centered = false
-
-[node name="Slot2" type="Control" parent="UI/Inventory"]
-texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-
-[node name="Frame" type="Sprite2D" parent="UI/Inventory/Slot2"]
-scale = Vector2(4, 4)
-texture = ExtResource("9_85g3d")
-centered = false
-
-[node name="IngredientSprite" type="Sprite2D" parent="UI/Inventory/Slot2"]
-scale = Vector2(4, 4)
-centered = false
-
-[node name="FinalSlot" type="Control" parent="UI/Inventory"]
-texture_filter = 1
-custom_minimum_size = Vector2(256, 256)
-layout_mode = 2
-
-[node name="Frame" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
-scale = Vector2(4, 4)
-texture = ExtResource("9_85g3d")
-centered = false
-
-[node name="RecipeSprite" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
-scale = Vector2(4, 4)
-centered = false
+[node name="GameUI" parent="UI" instance=ExtResource("10_trceg")]
+unique_name_in_owner = true
 
 [node name="StartupScreen" parent="UI" instance=ExtResource("11_ya4ey")]
 

@@ -1,0 +1,118 @@
+[gd_scene load_steps=2 format=3 uid="uid://f2flnc067m4u"]
+
+[ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="1_yubou"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_vertical_guides_ = [576.0]
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 317.0
+offset_top = 515.0
+offset_right = 929.0
+offset_bottom = 771.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="Slot0" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot0"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_yubou")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot0"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="Slot1" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot1"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_yubou")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot1"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="Slot2" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/Slot2"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_yubou")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot2"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="FinalSlot" type="Control" parent="Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Frame" type="Sprite2D" parent="Inventory/FinalSlot"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_yubou")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="Inventory/FinalSlot"]
+scale = Vector2(4, 4)
+centered = false
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_right = 8.65
+anchor_bottom = 1.375
+theme_override_font_sizes/font_size = 40
+text = "score placeholder"
+metadata/_edit_use_anchors_ = true
+
+[node name="ComboLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.568125
+anchor_top = 1.50312
+anchor_right = 8.70687
+anchor_bottom = 2.87812
+offset_left = 25.725
+offset_top = 6.875
+offset_right = 25.725
+offset_bottom = 6.875
+theme_override_font_sizes/font_size = 40
+text = "combo placeholder"
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 9.63188
+anchor_top = -0.171875
+anchor_right = 17.8569
+anchor_bottom = 1.20313
+offset_left = 25.725
+offset_top = 6.875
+offset_right = 25.725
+offset_bottom = 6.875
+theme_override_font_sizes/font_size = 40
+text = "time placeholder"
+metadata/_edit_use_anchors_ = true
