@@ -10,6 +10,26 @@ func _ready():
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.recipe_failed.connect(on_recipe_failed)
 	
+	start_game()
+
+
+
+func start_game() -> void:
+	# Start game timer
+	$GameTimer.start()
+	# Reset score, combo, recipe history, etc
+	GlobalInventory.score = 0.0
+	GlobalInventory.combo = 1.0
+	GlobalInventory.recipe_history = []
+	
+	
+func end_game() -> void:
+	# switch to end screen
+	pass
+
+
+
+
 func on_ing_list_updated() -> void:
 	update_ingredients_sprite()
 

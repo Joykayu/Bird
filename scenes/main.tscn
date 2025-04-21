@@ -992,3 +992,8 @@ centered = false
 [node name="RecipeSprite" type="Sprite2D" parent="UI/Inventory/FinalSlot"]
 scale = Vector2(4, 4)
 centered = false
+
+[node name="GameTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 60.0
+one_shot = true
