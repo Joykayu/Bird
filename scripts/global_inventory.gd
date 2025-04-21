@@ -108,7 +108,7 @@ static func get_all_resource_paths(directory_path: String, include_subdirectorie
 			file = file.trim_suffix(".remap")
 		elif file.ends_with(".import"):
 			file = file.trim_suffix(".import")
-		var full_name = directory_path + "/" + file
+		var full_name = directory_path  + file
 		if full_name.ends_with(".tres") or full_name.ends_with(".res") and ResourceLoader.exists(full_name,resource_type):
 			file_path_list.append(full_name)
 	if include_subdirectories:

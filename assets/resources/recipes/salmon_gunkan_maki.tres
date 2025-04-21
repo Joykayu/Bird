@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_hiple"]
 [ext_resource type="Texture2D" uid="uid://bhgwr1g2o1nnk" path="res://assets/graphics/food/makis/salmon_gunkan_maki.png" id="1_tgmdc"]
-[ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_ufh8k"]
+[ext_resource type="Script" uid="uid://dwg4wkvcpimvl" path="res://assets/resources/recipes/recipe.gd" id="2_ufh8k"]
 [ext_resource type="Resource" uid="uid://di2wgb3nyc3tj" path="res://assets/resources/ingredients/seaweed.tres" id="2_y8px2"]
 [ext_resource type="Resource" uid="uid://77vyk8xu0hwo" path="res://assets/resources/ingredients/salmon.tres" id="3_tgmdc"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="4_tgylq"]
@@ -12,3 +12,4 @@ script = ExtResource("2_ufh8k")
 icon = ExtResource("1_tgmdc")
 name = "Salmon Gunkan Maki"
 ing_input = Array[ExtResource("1_hiple")]([ExtResource("2_y8px2"), ExtResource("3_tgmdc"), ExtResource("4_tgylq")])
+recipe_score = 100.0

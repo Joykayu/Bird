@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c3ibxlc2wxnfk" path="res://assets/graphics/food/makis/rice_blue.png" id="1_m8jam"]
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_qeyuh"]
-[ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="2_5370s"]
+[ext_resource type="Script" uid="uid://dwg4wkvcpimvl" path="res://assets/resources/recipes/recipe.gd" id="2_5370s"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="2_m8jam"]
 
 [resource]
@@ -10,3 +10,4 @@ script = ExtResource("2_5370s")
 icon = ExtResource("1_m8jam")
 name = "White Rice"
 ing_input = Array[ExtResource("1_qeyuh")]([ExtResource("2_m8jam"), ExtResource("2_m8jam"), ExtResource("2_m8jam")])
+recipe_score = 100.0
