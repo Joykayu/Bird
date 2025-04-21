@@ -7,15 +7,19 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Inventory" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = 612.0
-offset_bottom = 256.0
+offset_left = 317.0
+offset_top = 515.0
+offset_right = 929.0
+offset_bottom = 771.0
 grow_horizontal = 2
+metadata/_edit_group_ = true
 
 [node name="Slot0" type="Control" parent="Inventory"]
 texture_filter = 1
@@ -73,6 +77,27 @@ centered = false
 scale = Vector2(4, 4)
 centered = false
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_right = 8.65
+anchor_bottom = 1.375
+theme_override_font_sizes/font_size = 40
+text = "score placeholder"
+metadata/_edit_use_anchors_ = true
+
+[node name="ComboLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.568125
+anchor_top = 1.50312
+anchor_right = 8.70687
+anchor_bottom = 2.87812
+offset_left = 25.725
+offset_top = 6.875
+offset_right = 25.725
+offset_bottom = 6.875
+theme_override_font_sizes/font_size = 40
+text = "combo placeholder"
+metadata/_edit_use_anchors_ = true
