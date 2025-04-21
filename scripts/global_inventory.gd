@@ -3,9 +3,10 @@ extends Node
 
 
 # init score and combo multiplier
-var score = 0.0
+var score := 0.0
 var combo := 1.0
-
+# how much combo increases
+var combo_step := 0.5
 
 var slot_0 :Ingredient
 var slot_1 :Ingredient
@@ -45,20 +46,26 @@ func add_ingredient(ingredient: Ingredient):
 func check_recipe():
 	var current_ingredients : Array[Ingredient] = [slot_0, slot_1, slot_2]
 	var correct_ingredients = false
+	
 	for recipe in recipe_list:
+		# if recipe exists
 		if recipe.ing_input == current_ingredients:
 			if is_in_history(recipe):
 				recipe_history.append(recipe)
 				recipe_crafted.emit(false)
+				update_score_and_combo(recipe.recipe_score,false)
 			else:
 				recipe_history.append(recipe)
 				recipe_crafted.emit(true)
+				update_score_and_combo(recipe.recipe_score,true)
+			
 			correct_ingredients = true
 			
 	
 	if !correct_ingredients:
 		recipe_failed.emit()
-	
+		update_score_and_combo(0,false)
+		
 	slot_0 = null
 	slot_1 = null
 	slot_2 = null
@@ -70,9 +77,18 @@ func is_in_history(recipe) -> bool:
 		return true
 	return false
 
-func update_score(recipe_score) -> void:
-	# add score according to recipe score
-	score += recipe_score * combo 
+func update_score_and_combo(recipe_score,new_recipe) -> void:
+	
+	# modify combo according to if we kept it alive or not.
+	if new_recipe: # add combo step to combo
+		# add score according to recipe score
+		score += recipe_score * combo
+		combo += combo_step
+	else: # reset combo
+		combo = 1.0
+		# add score according to recipe score
+		score += recipe_score * combo
+	
 
 
 ## Returns an array of full file paths to all resources in the directory at the specified path.
