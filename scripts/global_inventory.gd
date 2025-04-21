@@ -101,7 +101,6 @@ func update_score_and_combo(recipe,new_recipe) -> void:
 		combo = 1.0
 		# add score according to recipe score
 		score += recipe_score * combo
-	
 
 
 ## Returns an array of full file paths to all resources in the directory at the specified path.
