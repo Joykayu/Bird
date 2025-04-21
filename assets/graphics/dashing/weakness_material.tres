@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cluvhicwumu0r"]
+
+[ext_resource type="Shader" uid="uid://hrfaqqh7x63i" path="res://assets/graphics/dashing/outline2D_outer.gdshader" id="1_8wdn6"]
+
+[resource]
+shader = ExtResource("1_8wdn6")
+shader_parameter/line_color = Color(0.776471, 0.317647, 0.592157, 1)
+shader_parameter/width = 1.5
+shader_parameter/active = false

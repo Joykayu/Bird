@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://bh7anu7e1qg80"]
+
+[ext_resource type="Texture2D" uid="uid://7riwet0em0wl" path="res://assets/graphics/food/makis/cross.png" id="1_54had"]
+[ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_jsxho"]
+[ext_resource type="Script" uid="uid://dwg4wkvcpimvl" path="res://assets/resources/recipes/recipe.gd" id="2_54had"]
+
+[resource]
+script = ExtResource("2_54had")
+icon = ExtResource("1_54had")
+name = "Failed Recipe"
+ing_input = Array[ExtResource("1_jsxho")]([])
+recipe_score = 0.0
+metadata/_custom_type_script = "uid://dwg4wkvcpimvl"

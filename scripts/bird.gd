@@ -11,6 +11,8 @@ var dash_timer = 0
 var is_dash_cooling_down := false
 var dash_cooldown_duration := 2
 
+@export var dash_color : Color 
+
 # Variables for player movement - Change to change the feel
 var speed := 200
 
@@ -39,9 +41,21 @@ var turning_left: bool = false
 var turning_right: bool = false
 
 
-func _ready()->void:
 
+func _ready()->void:
+	$BodySprite.material.set_shader_parameter("line_color", dash_color)
+	$GPUParticles2D.modulate = dash_color
 	$DashCD.wait_time = dash_cooldown_duration
+
+
+func _process(_delta):
+	if is_dashing:
+		$BodySprite.material.set_shader_parameter("active",true)
+		$GPUParticles2D.emitting = true
+	else :
+		$BodySprite.material.set_shader_parameter("active",false)
+		$GPUParticles2D.emitting = false
+		
 
 func _physics_process(delta):
 	
