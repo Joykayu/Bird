@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=73 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dxj782i6sm6xe" path="res://scenes/rice_bag.tscn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://baugln1dr0ue2" path="res://scenes/seaweed.tscn" id="7_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://dnwo5j3f4gu2g" path="res://scenes/startup_screen.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cf8vkkwnhy7aa" path="res://scenes/tutorial_screen.tscn" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://yvtvipnhx7gj" path="res://scenes/game_over_screen.tscn" id="12_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -841,7 +844,6 @@ metadata/_edit_horizontal_guides_ = [648.0, 0.0]
 
 [node name="GameTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 60.0
 one_shot = true
 
 [node name="World" type="Node" parent="."]
@@ -1001,26 +1003,10 @@ centered = false
 scale = Vector2(4, 4)
 centered = false
 
-[node name="GameOverScreen" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="StartupScreen" parent="UI" instance=ExtResource("11_ya4ey")]
 
-[node name="TutorialScreen" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GameOverScreen" parent="UI" instance=ExtResource("12_trceg")]
 
-[node name="StartupScreen" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TutorialScreen" parent="UI" instance=ExtResource("12_eb6dy")]
+
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

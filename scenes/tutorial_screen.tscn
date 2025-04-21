@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf8vkkwnhy7aa"]
+
+[ext_resource type="Script" uid="uid://bj8bjl387xarb" path="res://scripts/tutorial_screen.gd" id="1_rn67y"]
+[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="2_2xfp7"]
+
+[node name="TutorialScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rn67y")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_right = 57.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "tutorial screen"
+
+[node name="ReturnToStartupScreen" type="TextureButton" parent="."]
+layout_mode = 0
+anchor_left = 0.195312
+anchor_top = 0.225309
+anchor_right = 0.306424
+anchor_bottom = 0.422839
+texture_normal = ExtResource("2_2xfp7")
+metadata/_edit_use_anchors_ = true
+
+[node name="return" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.373457
+anchor_right = 0.539931
+anchor_bottom = 0.501543
+offset_top = 1.52588e-05
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Return to main menu"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ReturnToStartupScreen" to="." method="_on_return_to_startup_screen_pressed"]

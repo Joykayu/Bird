@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://yvtvipnhx7gj"]
+
+[ext_resource type="Script" uid="uid://clana87guq28w" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
+[ext_resource type="Texture2D" uid="uid://bm6dfetceehej" path="res://icon.svg" id="2_61w2s"]
+
+[node name="GameOverScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iwahs")
+
+[node name="GameOverText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 737.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 40
+text = "Mate, DesiRay-Chan!"
+
+[node name="YourScore" type="Label" parent="."]
+offset_left = 368.0
+offset_top = 130.0
+offset_right = 711.0
+offset_bottom = 185.0
+theme_override_font_sizes/font_size = 40
+text = "score placeholder"
+
+[node name="SubmitHighScoreButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.138889
+anchor_top = 0.459877
+anchor_right = 0.25
+anchor_bottom = 0.657407
+texture_normal = ExtResource("2_61w2s")
+metadata/_edit_use_anchors_ = true
+
+[node name="submit" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 426.0
+offset_right = 387.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "submit highscore"
+
+[node name="RestartButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.427083
+anchor_top = 0.459877
+anchor_right = 0.538194
+anchor_bottom = 0.657407
+texture_normal = ExtResource("2_61w2s")
+metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 426.0
+offset_right = 667.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "play again"
+
+[node name="StartupButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665123
+anchor_top = 0.392204
+anchor_right = 0.776235
+anchor_bottom = 0.589735
+offset_left = 11.7778
+offset_top = 43.8519
+offset_right = 11.7778
+offset_bottom = 43.8519
+texture_normal = ExtResource("2_61w2s")
+metadata/_edit_use_anchors_ = true
+
+[node name="mainmenu" type="Label" parent="."]
+offset_left = 711.0
+offset_top = 426.0
+offset_right = 1054.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "main menu"
+
+[connection signal="pressed" from="SubmitHighScoreButton" to="." method="_on_submit_high_score_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="StartupButton" to="." method="_on_startup_button_pressed"]
