@@ -48,7 +48,7 @@ func _ready()->void:
 	$DashCD.wait_time = dash_cooldown_duration
 
 
-func _process(delta):
+func _process(_delta):
 	if is_dashing:
 		$BodySprite.material.set_shader_parameter("active",true)
 		$GPUParticles2D.emitting = true

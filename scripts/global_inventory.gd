@@ -11,6 +11,7 @@ var combo_step := 0.5
 var slot_0 :Ingredient
 var slot_1 :Ingredient
 var slot_2 :Ingredient
+var shiny_ingredients : Array[bool] = [false, false, false]
 
 var recipe_list : Array[Recipe] 
 var recipe_history : Array[Recipe]
@@ -27,7 +28,7 @@ func _ready():
 		recipe_list.append(load(recipe_ressource))
 
 
-func add_ingredient(ingredient: Ingredient):
+func add_ingredient(ingredient: Ingredient, is_shiny : bool = false):
 	match current_slot_idx:
 		0:
 			slot_0 = ingredient
@@ -35,13 +36,14 @@ func add_ingredient(ingredient: Ingredient):
 			slot_1 = ingredient
 		2:
 			slot_2 = ingredient
+	shiny_ingredients[current_slot_idx] = is_shiny
 	
 	ing_list_updated.emit()
 	current_slot_idx += 1
 	
 	if current_slot_idx == 3:
 		check_recipe()
-		current_slot_idx = 0
+
 
 func check_recipe():
 	var current_ingredients : Array[Ingredient] = [slot_0, slot_1, slot_2]
@@ -50,14 +52,15 @@ func check_recipe():
 	for recipe in recipe_list:
 		# if recipe exists
 		if recipe.ing_input == current_ingredients:
+			recipe.quality = shiny_ingredients
 			if is_in_history(recipe):
 				recipe_history.append(recipe)
 				recipe_crafted.emit(false)
-				update_score_and_combo(recipe.recipe_score,false)
+				update_score_and_combo(recipe,false)
 			else:
 				recipe_history.append(recipe)
 				recipe_crafted.emit(true)
-				update_score_and_combo(recipe.recipe_score,true)
+				update_score_and_combo(recipe,true)
 			
 			correct_ingredients = true
 			
@@ -69,6 +72,8 @@ func check_recipe():
 	slot_0 = null
 	slot_1 = null
 	slot_2 = null
+	shiny_ingredients = [false, false, false]
+	current_slot_idx = 0
 	ing_list_updated.emit()
 
 func is_in_history(recipe) -> bool:
@@ -77,13 +82,13 @@ func is_in_history(recipe) -> bool:
 		return true
 	return false
 
-func update_score_and_combo(recipe_score,new_recipe) -> void:
-	
+func update_score_and_combo(recipe,new_recipe) -> void:
+	var recipe_score = recipe.recipe_score
 	# modify combo according to if we kept it alive or not.
 	if new_recipe: # add combo step to combo
 		# add score according to recipe score
 		score += recipe_score * combo
-		combo += combo_step
+		combo += combo_step * (recipe.quality.count(true) + 1)
 	else: # reset combo
 		combo = 1.0
 		# add score according to recipe score

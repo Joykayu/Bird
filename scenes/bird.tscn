@@ -37,6 +37,7 @@ polygon = PackedVector2Array(-4, -71, 0, -72, 4, -71, 26, -43, 14, -33, -14, -33
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -38)
+emitting = false
 amount = 30
 texture = ExtResource("3_twsrt")
 process_material = SubResource("ParticleProcessMaterial_b7mtg")

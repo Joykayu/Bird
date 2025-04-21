@@ -7,3 +7,5 @@ extends Resource
 @export var ing_input : Array[Ingredient]
 
 @export var recipe_score := 100.0
+
+var quality : Array [bool] = [false, false, false]

@@ -2,7 +2,7 @@ extends Control
 
 var fail_icon = preload("res://assets/graphics/food/makis/cross.png")
 
-
+@onready var recipe_stars = [%Inventory/FinalSlot/StarsSprite, %Inventory/FinalSlot/StarsSprite2, %Inventory/FinalSlot/StarsSprite3]
 
 
 func _ready():
@@ -13,7 +13,7 @@ func _ready():
 	# show start screen, hide others
 	show_startup_screen()
 	
-	
+## UI display functions
 func show_startup_screen() -> void:
 	# show start screen, hide others
 	$UI/GameOverScreen.hide()
@@ -45,7 +45,6 @@ func hide_tutorial() -> void:
 	$UI/TutorialScreen.hide()
 	$UI/StartupScreen.show()
 	
-	
 func end_game() -> void:
 	print("end_game")
 	$UI/Inventory.hide()
@@ -58,11 +57,13 @@ func _on_game_timer_timeout() -> void:
 	print("game timeout!")
 	end_game()
 	
-	
+
+## Inventory display functions
+
 func on_ing_list_updated() -> void:
 	update_ingredients_sprite()
 
-func on_recipe_crafted(is_new_recipe) -> void:
+func on_recipe_crafted(_is_new_recipe) -> void:
 	update_recipe_sprite(true)
 
 func on_recipe_failed() -> void:
@@ -70,24 +71,35 @@ func on_recipe_failed() -> void:
 
 func update_ingredients_sprite()-> void:
 	if GlobalInventory.slot_0 != null:
-		$UI/Inventory/Slot0/IngredientSprite.texture = GlobalInventory.slot_0.icon
+		%Inventory/Slot0/IngredientSprite.texture = GlobalInventory.slot_0.icon
+		if GlobalInventory.shiny_ingredients[0] :
+			%Inventory/Slot0/StarsSprite.show()
 	else:
-		$UI/Inventory/Slot0/IngredientSprite.texture = null
+		%Inventory/Slot0/IngredientSprite.texture = null
+		%Inventory/Slot0/StarsSprite.hide()
 		
 	if GlobalInventory.slot_1 != null:
-		$UI/Inventory/Slot1/IngredientSprite.texture = GlobalInventory.slot_1.icon
+		%Inventory/Slot1/IngredientSprite.texture = GlobalInventory.slot_1.icon
+		if GlobalInventory.shiny_ingredients[1]:
+			%Inventory/Slot1/StarsSprite.show()
 	else:
-		$UI/Inventory/Slot1/IngredientSprite.texture = null
+		%Inventory/Slot1/IngredientSprite.texture = null
+		%Inventory/Slot1/StarsSprite.hide()
 		
 	if GlobalInventory.slot_2 != null:
-		$UI/Inventory/Slot2/IngredientSprite.texture = GlobalInventory.slot_2.icon
+		%Inventory/Slot2/IngredientSprite.texture = GlobalInventory.slot_2.icon
+		if GlobalInventory.shiny_ingredients[2]:
+			%Inventory/Slot2/StarsSprite.show()
 	else:
-		$UI/Inventory/Slot2/IngredientSprite.texture = null
+		%Inventory/Slot2/IngredientSprite.texture = null
+		%Inventory/Slot2/StarsSprite.hide()
 
 func update_recipe_sprite(is_successful: bool) -> void:
 	if is_successful == null:
-		$UI/Inventory/FinalSlot/RecipeSprite.texture = null
+		%Inventory/FinalSlot/RecipeSprite.texture = null
 	elif is_successful :
-		$UI/Inventory/FinalSlot/RecipeSprite.texture = GlobalInventory.recipe_history[-1].icon
+		%Inventory/FinalSlot/RecipeSprite.texture = GlobalInventory.recipe_history[-1].icon
+		for star_idx in range(3):
+			recipe_stars[star_idx].visible = GlobalInventory.recipe_history[-1].quality[star_idx]
 	else:
-		$UI/Inventory/FinalSlot/RecipeSprite.texture = fail_icon
+		%Inventory/FinalSlot/RecipeSprite.texture = fail_icon
