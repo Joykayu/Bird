@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk4lad2dp08sn" path="res://assets/graphics/ui/right_flap.png" id="4_6t5s3"]
 [ext_resource type="Texture2D" uid="uid://kf3b4gjwlwf6" path="res://assets/graphics/ui/double_flap.png" id="5_owd46"]
 [ext_resource type="Texture2D" uid="uid://bkmjlcu52j4yo" path="res://assets/graphics/ui/dash.png" id="6_5im2b"]
-[ext_resource type="Texture2D" uid="uid://7idvhvqk1ial" path="res://assets/graphics/ui/cutting_board.png" id="7_8ucgo"]
+[ext_resource type="Texture2D" uid="uid://dvp146b86w868" path="res://assets/graphics/ui/cutting_board_example.png" id="7_8ucgo"]
 
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
@@ -195,26 +195,35 @@ theme = ExtResource("3_6iv2e")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer2/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 64
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_horizontal = 3
 texture = ExtResource("7_8ucgo")
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/PanelContainer/MarginContainer/HBoxContainer"]
+texture_filter = 1
 custom_minimum_size = Vector2(64, 32)
 layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("3_6iv2e")
-text = "Flap Left Wing"
+theme_override_font_sizes/font_size = 18
+text = "Combine 3 ingredients to craft a delicious meal,
+chain various meals to get tasty COMBOS !"
 horizontal_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
