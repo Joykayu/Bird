@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d2xo8y5tjg5ou"]
+
+[ext_resource type="FontFile" uid="uid://u0ugn3wen4pi" path="res://assets/graphics/ui/JF-Dot-Kappa20-0213.ttf" id="1_hsxbo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsxbo"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[resource]
+default_font = ExtResource("1_hsxbo")
+default_font_size = 24
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0)
+Button/constants/outline_size = 11
+Button/font_sizes/font_size = 40
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_hsxbo")
