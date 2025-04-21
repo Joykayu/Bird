@@ -5,6 +5,29 @@ extends Control
 @onready var history_0_stars = [%Inventory/HistorySlot0/StarsSprite, %Inventory/HistorySlot0/StarsSprite2, %Inventory/HistorySlot0/StarsSprite3]
 @onready var history_1_stars = [%Inventory/HistorySlot1/StarsSprite, %Inventory/HistorySlot1/StarsSprite2, %Inventory/HistorySlot1/StarsSprite3]
 
+
+
+func _physics_process(delta: float) -> void:
+	update_score()
+	update_combo()
+	update_timer()
+
+func update_score() -> void:
+	$Score.text = str("Score ",int(floor(GlobalInventory.score)))
+
+func update_combo() -> void:
+	$Combo.text =  str("Combo x",GlobalInventory.combo)
+	
+	
+func update_timer() -> void:
+	
+	var msec = get_tree().get_first_node_in_group("gametimer").time_left
+	msec = msec - floor(msec)
+	msec = int(msec*1000)
+	
+	
+	$Timer.text = str(int(floor(get_tree().get_first_node_in_group("gametimer").time_left)),":",msec)
+
 func update_ingredients_sprite()-> void:
 	if GlobalInventory.slot_0 != null:
 		%Inventory/Slot0/IngredientSprite.texture = GlobalInventory.slot_0.icon
