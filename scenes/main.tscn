@@ -844,6 +844,7 @@ metadata/_edit_horizontal_guides_ = [648.0, 0.0]
 
 [node name="GameTimer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 60.0
 one_shot = true
 
 [node name="World" type="Node" parent="."]
@@ -911,7 +912,6 @@ position = Vector2(-1227, -786)
 
 [node name="Bird" parent="World" instance=ExtResource("1_o5qli")]
 material = SubResource("ShaderMaterial_o6xl0")
-position = Vector2(982, 584)
 scale = Vector2(2, 2)
 
 [node name="Camera2D" type="Camera2D" parent="World/Bird"]

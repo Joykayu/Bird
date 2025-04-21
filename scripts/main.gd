@@ -35,9 +35,10 @@ func start_game() -> void:
 	$UI/StartupScreen.hide()
 	
 	$World/Bird.activate()
-	
+	$World/Bird.set_position(Vector2(0,0))
 	# Start game timer
 	$GameTimer.start()
+	
 	# Reset score, combo, recipe history, etc
 	GlobalInventory.score = 0.0
 	GlobalInventory.combo = 1.0

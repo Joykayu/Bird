@@ -157,7 +157,6 @@ func activate() -> void:
 	# restore controls
 	is_deactivated = false
 	
-	
 func increment_velocity (increment: float):
 	var new_velocity_length = velocity.length() + increment
 	
