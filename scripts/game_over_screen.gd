@@ -1,6 +1,5 @@
 extends Control
 
-
 func _on_submit_high_score_button_pressed() -> void:
 	%Sounds/ButtonClick.play()
 	get_tree().get_root().get_node("Main").submit_high_score()

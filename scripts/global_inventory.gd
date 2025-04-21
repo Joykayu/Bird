@@ -58,12 +58,12 @@ func check_recipe():
 		# if recipe exists
 		if recipe.ing_input == current_ingredients:
 			recipe.quality = shiny_ingredients
-			recipe_history.append(recipe)
-			recipe_crafted.emit()
 			if is_in_history(recipe):
 				update_score_and_combo(recipe,false)
 			else:
 				update_score_and_combo(recipe,true)
+			recipe_history.append(recipe)
+			recipe_crafted.emit()
 			
 			correct_ingredients = true
 	

@@ -13,10 +13,10 @@ func _physics_process(delta: float) -> void:
 	update_timer()
 
 func update_score() -> void:
-	$Score.text = str("Score ",int(floor(GlobalInventory.score)))
+	%Score.text = str("Score : ",int(floor(GlobalInventory.score)))
 
 func update_combo() -> void:
-	$Combo.text =  str("Combo x",GlobalInventory.combo)
+	%Combo.text =  str("x ",GlobalInventory.combo, " COMBO")
 	
 	
 func update_timer() -> void:
@@ -26,7 +26,7 @@ func update_timer() -> void:
 	msec = int(msec*1000)
 	
 	
-	$Timer.text = str(int(floor(get_tree().get_first_node_in_group("gametimer").time_left)),":",msec)
+	%Timer.text = str(int(floor(get_tree().get_first_node_in_group("gametimer").time_left)),":",msec)
 
 func update_ingredients_sprite()-> void:
 	if GlobalInventory.slot_0 != null:
