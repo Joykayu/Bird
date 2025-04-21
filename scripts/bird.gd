@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var is_deactivated := true	
 
 var max_velocity := 800
+
 
 var dash_duration := 0.3
 var dash_speed := max_velocity * 2
@@ -14,12 +14,16 @@ var dash_cooldown_duration := 2
 # Variables for player movement - Change to change the feel
 var speed := 200
 
+
+
 var speed_turning := 200
 
 var rot_speed := 4.0
 var rot_drag := 3.0
 
 var drag := 1.0
+
+
 
 @onready var min_zoomout : float = $Camera2D.zoom.x
 var max_zoomout := 0.4
@@ -105,9 +109,6 @@ func _input(event):
 	if is_dashing:
 		return
 	
-	if is_deactivated:
-		return
-	
 	if event is InputEventKey:
 		if event.is_action_pressed("keyboard_left"):
 			Input.action_press("flap_left")
@@ -124,18 +125,6 @@ func _input(event):
 			dash_timer = 0
 			
 			
-			
-# Disable bird from interacting with anything, but keep drawing it to have nice game over screen
-func deactivate() -> void:
-	# Deactivate inputs from bird
-	is_deactivated = true
-	
-func activate() -> void:
-	is_deactivated = false	
-	
-
-
-
 func increment_velocity (increment: float):
 	var new_velocity_length = velocity.length() + increment
 	
@@ -145,3 +134,4 @@ func increment_velocity (increment: float):
 	
 	velocity = - transform.y.normalized() * new_velocity_length
 	
+	#
