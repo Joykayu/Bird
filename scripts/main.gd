@@ -27,8 +27,12 @@ func start_game() -> void:
 	$UI/TutorialScreen.hide()
 	$UI/InGameUI.show()
 	$UI/StartupScreen.hide()
+	
+	$World/Bird.activate()
+	$World/Bird.set_position(Vector2(0,0))
 	# Start game timer
 	$GameTimer.start()
+	
 	# Reset score, combo, recipe history, etc
 	GlobalInventory.score = 0.0
 	GlobalInventory.combo = 1.0
@@ -46,8 +50,16 @@ func hide_tutorial() -> void:
 	
 func end_game() -> void:
 	print("end_game")
-	$UI/Inventory.hide()
+	
+	$Sounds/MusicMenu.play()
+	$Sounds/MusicGame.stop()
+	$Sounds/GameGong.play()
+	$Sounds/GameMate.play()
+	
+	$UI/InGameUI.hide()
 	$UI/GameOverScreen.show()
+	
+	$World/Bird.deactivate()
 	
 func submit_high_score() -> void:
 	print("high score submitted")

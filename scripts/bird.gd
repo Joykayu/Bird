@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var max_velocity := 800
-
+var is_deactivated := true
 
 var dash_duration := 0.3
 var dash_speed := max_velocity * 2
@@ -28,7 +28,7 @@ var drag := 1.0
 
 
 @onready var min_zoomout : float = $Camera2D.zoom.x
-var max_zoomout := 0.4
+var max_zoomout := 0.3
 var zoomout_speed := 0.5
 var zoomin_speed := 0.1
 
@@ -120,6 +120,9 @@ func _physics_process(delta):
 
 func _input(event):	
 	
+	if is_deactivated:
+		return
+	
 	if is_dashing:
 		return
 	
@@ -139,6 +142,15 @@ func _input(event):
 			dash_timer = 0
 			
 			
+			
+func deactivate() -> void:
+	# block controls
+	is_deactivated = true
+	
+func activate() -> void:
+	# restore controls
+	is_deactivated = false
+	
 func increment_velocity (increment: float):
 	var new_velocity_length = velocity.length() + increment
 	
