@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://3sk5o162ober" path="res://assets/sounds/recipe_cooking.wav" id="29_c6pm6"]
 [ext_resource type="AudioStream" uid="uid://bhsqwo8wvgr1f" path="res://assets/sounds/recipe_error.wav" id="30_5he1u"]
 [ext_resource type="AudioStream" uid="uid://bgjr8j7rcgfrj" path="res://assets/sounds/miam_improved.wav" id="31_5poiv"]
+[ext_resource type="PackedScene" uid="uid://b1qpk08kd2cfy" path="res://scenes/in_game_ui.tscn" id="13_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
