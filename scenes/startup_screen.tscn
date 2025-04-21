@@ -24,9 +24,11 @@ anchor_right = 0.818576
 anchor_bottom = 0.240741
 grow_horizontal = 2
 theme = ExtResource("3_po68c")
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 60
-text = "DesiRay-Chan, apprentice sushi master"
-metadata/_edit_use_anchors_ = true
+text = "DesiRay-Chan, 
+apprentice sushi master"
+horizontal_alignment = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -34,11 +36,11 @@ anchors_preset = -1
 anchor_left = 0.164063
 anchor_right = 0.386285
 anchor_bottom = 1.0
-offset_left = 60.0
-offset_right = 60.0
+offset_left = 59.9994
+offset_top = 220.0
+offset_right = 59.9997
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer2"]
 custom_minimum_size = Vector2(256, 128)
@@ -60,7 +62,6 @@ grow_vertical = 2
 theme = ExtResource("3_po68c")
 text = "Start"
 flat = true
-metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -68,6 +69,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 602.0
+offset_top = 219.0
 offset_right = -238.0
 grow_horizontal = 2
 grow_vertical = 2
