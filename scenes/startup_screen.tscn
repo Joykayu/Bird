@@ -34,6 +34,19 @@ grow_vertical = 2
 texture_normal = ExtResource("1_jamkg")
 metadata/_edit_use_anchors_ = true
 
+[node name="Start" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -556.0
+offset_top = 388.0
+offset_right = -453.0
+offset_bottom = 443.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "start"
+
 [node name="TutorialButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -48,6 +61,19 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("1_jamkg")
+
+[node name="Tutorial" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 388.0
+offset_right = 85.0
+offset_bottom = 443.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Tutorial"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]

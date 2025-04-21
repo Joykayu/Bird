@@ -39,6 +39,14 @@ anchor_bottom = 0.657407
 texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
 
+[node name="submit" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 426.0
+offset_right = 387.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "submit highscore"
+
 [node name="RestartButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -48,6 +56,14 @@ anchor_right = 0.538194
 anchor_bottom = 0.657407
 texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 426.0
+offset_right = 667.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "play again"
 
 [node name="StartupButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -62,6 +78,14 @@ offset_right = 11.7778
 offset_bottom = 43.8519
 texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
+
+[node name="mainmenu" type="Label" parent="."]
+offset_left = 711.0
+offset_top = 426.0
+offset_right = 1054.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 40
+text = "main menu"
 
 [connection signal="pressed" from="SubmitHighScoreButton" to="." method="_on_submit_high_score_button_pressed"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
