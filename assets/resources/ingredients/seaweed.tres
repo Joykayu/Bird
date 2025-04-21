@@ -7,5 +7,4 @@
 script = ExtResource("1_qev60")
 icon = ExtResource("1_o83m3")
 name = "Seaweed"
-gather_sound_path = "Sounds/GatherSeaweed"
 metadata/_custom_type_script = "uid://bmdjnw0cjk1fa"

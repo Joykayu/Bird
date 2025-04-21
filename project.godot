@@ -29,7 +29,6 @@ folder_colors={
 "res://assets/audio/": "yellow",
 "res://assets/graphics/": "red",
 "res://assets/resources/": "orange",
-"res://assets/sounds/": "yellow",
 "res://exports/": "gray",
 "res://scenes/": "teal",
 "res://scripts/": "blue"
