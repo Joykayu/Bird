@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Désiray Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2em;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #leaderboard {
+            max-width: 600px;
+            margin: 2em auto;
+            background: white;
+            padding: 1em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 0.5em;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏆 Game Leaderboard</h1>
+    <div id="leaderboard" style="max-height: 500px; overflow-y: auto;">
+        <p>Loading leaderboard...</p>
+    </div>
+
+    <script type="module">
+        async function fetchLeaderboard() {
+            const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzY3Zvc3ZtYnVpZnlzYW1ybmt0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUyNDA0MDksImV4cCI6MjA2MDgxNjQwOX0.VvCwe95gFQJVioD2wH9zUuh0aV6yUzUQrUeoxrdKcVs";
+            const url = "https://jscvosvmbuifysamrnkt.supabase.co/rest/v1/score?select=*";
+            const container = document.getElementById('leaderboard');
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        "'Content-Type": "application/json",
+                        apikey: apiKey
+                    }
+                });
+
+                if (!response.ok) throw new Error('Failed to fetch leaderboard');
+
+                const players = await response.json(); // expects [{ name: "Alice", score: 150 }, ...]
+
+                // Sort by score descending
+                players.sort((a, b) => b.score - a.score);
+
+                // Build the HTML table
+                const tableHTML = `
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${players.map((player, index) => `
+                <tr>
+                  <td>#${index + 1}</td>
+                  ${!player.name ? "<td style=\"color: #d5d8dc\">NaN</td>" : `<td>${player.name}</td>`}
+                  <td>${player.score}</td>
+                </tr>
+              `).join('')
+                    }
+            </tbody >
+          </table >
+                `;
+
+                container.innerHTML = tableHTML;
+            } catch (error) {
+                container.innerHTML = `< p style = "color:red;" > Error loading leaderboard: ${error.message}</p >`;
+            }
+        }
+
+        fetchLeaderboard();
+    </script>
+
+</body>
+
+</html>
