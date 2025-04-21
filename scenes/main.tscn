@@ -1302,54 +1302,73 @@ unique_name_in_owner = true
 
 [node name="MusicMenu" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("14_fv21b")
+bus = &"Music"
 
 [node name="MusicGame" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("15_tel4y")
+bus = &"Music"
 
 [node name="GameHajime" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("16_qkpxi")
+bus = &"Sound"
 
 [node name="GameHalfTime" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("17_5q0nq")
+bus = &"Sound"
 
 [node name="GameMate" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("18_dgi5k")
+bus = &"Sound"
 
 [node name="GameGong" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("19_j8jky")
+bus = &"Sound"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("20_kmb1v")
+bus = &"Sound"
 
 [node name="BirdDash" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("21_fuf3a")
 volume_db = 6.171
+bus = &"Sound"
 
 [node name="Collision" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("22_pibwh")
+bus = &"Sound"
 
 [node name="BirdFlap" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("23_c6pm6")
+bus = &"Sound"
 
 [node name="BirdFlip" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("24_5he1u")
+bus = &"Sound"
 
 [node name="GatherRice" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("25_5poiv")
+bus = &"Sound"
 
 [node name="GatherFish" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("26_2cjbq")
+bus = &"Sound"
 
 [node name="GatherSeaweed" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("27_chjal")
+bus = &"Sound"
 
 [node name="RecipeCooked" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("28_cjqg0")
+bus = &"Sound"
 
 [node name="RecipeError" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("29_vchkt")
+bus = &"Sound"
 
 [node name="RecipeSuccess" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("30_txyw0")
+bus = &"Sound"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

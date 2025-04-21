@@ -1,8 +1,7 @@
 extends Control
 
 
-
-
+var api_key := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzY3Zvc3ZtYnVpZnlzYW1ybmt0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NTI0MDQwOSwiZXhwIjoyMDYwODE2NDA5fQ.zLCqbq5Slh5D_Um_EuTiFSCdRdHAHeDgxKn-vjwudrY"
 
 func _ready():
 	GlobalInventory.ing_list_updated.connect(on_ing_list_updated)
@@ -12,6 +11,7 @@ func _ready():
 	# show start screen, hide others
 	show_startup_screen()
 	$Sounds/MusicMenu.play()
+	get_scores()
 	
 ## UI display functions
 func show_startup_screen() -> void:
@@ -67,8 +67,45 @@ func end_game() -> void:
 	
 	$World/Bird.deactivate()
 	
-func submit_high_score() -> void:
-	print("high score submitted")
+	
+func submit_score(name: String) -> void:	
+	$HTTPRequest.request_completed.connect(on_score_insert_completed)
+	var url := "https://jscvosvmbuifysamrnkt.supabase.co/rest/v1/score"
+	var score := GlobalInventory.score
+	var json = JSON.stringify({
+		"score": int(score),
+		"name": name,
+	})
+	var headers = [
+		"Content-Type: application/json", 
+		"Prefer: return=minimal",
+		"apikey: " + self.api_key,
+	]
+	$HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
+
+func on_score_insert_completed(result, response_code, headers, body):
+	show_startup_screen()
+	
+	
+func get_scores() -> void:
+	$HTTPRequest.request_completed.connect(on_score_read_completed)
+	var url := "https://jscvosvmbuifysamrnkt.supabase.co/rest/v1/score?select=*"
+	var headers := [
+		"apikey: " + self.api_key
+	]
+	$HTTPRequest.request(url, headers)
+	
+func on_score_read_completed(result, response_code, headers, body):
+	var score_array = JSON.parse_string(body.get_string_from_utf8())
+	print(response_code, JSON.stringify(score_array))
+
+	var score_string := ""
+	for i in range(score_array.size()):
+		score_string += str(i+1) + ": " + str(score_array[i]["name"]) + "  -  " + str(score_array[i]["score"]) + "\n"
+		
+	$UI/StartupScreen/ColorRect/ScoreLabel.text = score_string
+		
+	
 	
 func _on_game_timer_timeout() -> void:
 	print("game timeout!")

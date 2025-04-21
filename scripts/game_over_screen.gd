@@ -1,9 +1,11 @@
 extends Control
 
 
-func _on_submit_high_score_button_pressed() -> void:
+func _on_submit_score_button_pressed() -> void:
+	var name = $LineEdit.text
 	%Sounds/ButtonClick.play()
-	get_tree().get_root().get_node("Main").submit_high_score()
+	get_tree().get_root().get_node("Main").submit_score(name)
+
 
 func _on_startup_button_pressed() -> void:
 	%Sounds/ButtonClick.play()
