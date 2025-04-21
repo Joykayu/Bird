@@ -22,7 +22,6 @@ theme_override_font_sizes/font_size = 40
 text = "Mate, DesiRay-Chan!"
 
 [node name="YourScore" type="Label" parent="."]
-layout_mode = 0
 offset_left = 368.0
 offset_top = 130.0
 offset_right = 711.0
@@ -41,7 +40,6 @@ texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
 
 [node name="submit" type="Label" parent="."]
-layout_mode = 0
 offset_left = 44.0
 offset_top = 426.0
 offset_right = 387.0
@@ -60,7 +58,6 @@ texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
 
 [node name="restart" type="Label" parent="."]
-layout_mode = 0
 offset_left = 448.0
 offset_top = 426.0
 offset_right = 667.0
@@ -83,7 +80,6 @@ texture_normal = ExtResource("2_61w2s")
 metadata/_edit_use_anchors_ = true
 
 [node name="mainmenu" type="Label" parent="."]
-layout_mode = 0
 offset_left = 711.0
 offset_top = 426.0
 offset_right = 1054.0
