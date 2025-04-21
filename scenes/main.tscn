@@ -881,36 +881,358 @@ tile_set = SubResource("TileSet_choun")
 [node name="Collectibles" type="Node" parent="World"]
 
 [node name="Seaweed" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
-position = Vector2(2159, -535)
+position = Vector2(3681, -1216)
 
 [node name="Seaweed2" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
-position = Vector2(969, -332)
+position = Vector2(4019, -1070)
 
 [node name="Seaweed3" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
-position = Vector2(978, -55)
+position = Vector2(-1767, -504)
 
 [node name="Fish" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
-position = Vector2(765, -1314)
+position = Vector2(-1278, -1916)
+scale = Vector2(1.30147, 0.955196)
 x_offset = 150.0
 y_offset = 50.0
 
 [node name="Fish2" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
-position = Vector2(1329, -1531)
-x_offset = 50.0
+position = Vector2(70, 1954)
+x_offset = 120.0
 y_offset = 150.0
 
 [node name="Fish3" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
-position = Vector2(-374, -1098)
+position = Vector2(1740, 2988)
 y_offset = 300.0
 
 [node name="RiceBag" parent="World/Collectibles" instance=ExtResource("7_choun")]
-position = Vector2(1671, -1187)
+position = Vector2(2243, -472)
 
 [node name="RiceBag2" parent="World/Collectibles" instance=ExtResource("7_choun")]
-position = Vector2(2165, -1027)
+position = Vector2(3035, -1301)
 
 [node name="RiceBag3" parent="World/Collectibles" instance=ExtResource("7_choun")]
 position = Vector2(-1227, -786)
+
+[node name="Seaweed4" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(1276, -665)
+
+[node name="Seaweed5" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(1193, -144)
+
+[node name="Seaweed6" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(1684, -492)
+
+[node name="Seaweed7" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(256, -297)
+
+[node name="Seaweed8" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(3519, -819)
+
+[node name="Seaweed9" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(2544, 1626)
+
+[node name="Seaweed10" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(947, 371)
+
+[node name="Seaweed11" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-1208, 241)
+
+[node name="Seaweed12" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(1895, 1239)
+
+[node name="Seaweed13" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-999, 1176)
+
+[node name="Seaweed14" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(67, 1408)
+
+[node name="Seaweed15" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(3055, 1552)
+
+[node name="Seaweed16" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(4643, 80)
+
+[node name="Seaweed17" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(5195, -1784)
+
+[node name="Seaweed18" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(5715, -745)
+
+[node name="Seaweed19" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(4476, 2907)
+
+[node name="Seaweed20" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(4911, 1667)
+
+[node name="Seaweed21" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(5678, 1543)
+
+[node name="Seaweed22" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-257, 2320)
+
+[node name="Seaweed23" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(1845, 3161)
+
+[node name="Seaweed24" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(636, 3814)
+
+[node name="Seaweed25" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-1587, 4243)
+
+[node name="Seaweed26" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-2290, 3907)
+
+[node name="Seaweed27" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-3126, 2941)
+
+[node name="RiceBag4" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-375, -2605)
+
+[node name="RiceBag5" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1465, -2839)
+
+[node name="RiceBag6" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-835, 3255)
+
+[node name="RiceBag7" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(5427, 3009)
+
+[node name="RiceBag8" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(5468, 2637)
+
+[node name="RiceBag9" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(4484, 2329)
+
+[node name="RiceBag10" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-3168, 1836)
+
+[node name="RiceBag11" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1831, 4153)
+
+[node name="RiceBag12" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(371, 3835)
+
+[node name="RiceBag13" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(521, 1049)
+
+[node name="RiceBag14" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(1015, 1209)
+
+[node name="RiceBag15" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(524, 1325)
+
+[node name="RiceBag16" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(305, 2359)
+
+[node name="RiceBag17" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-3092, -1621)
+
+[node name="RiceBag18" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(731, 2763)
+
+[node name="RiceBag19" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(3634, -1709)
+
+[node name="RiceBag20" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-423, -2908)
+
+[node name="RiceBag21" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-914, -2792)
+
+[node name="RiceBag22" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-822, 2237)
+
+[node name="RiceBag23" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(-2344, 2881)
+
+[node name="RiceBag24" parent="World/Collectibles" instance=ExtResource("7_choun")]
+position = Vector2(2842, 1957)
+
+[node name="Seaweed28" parent="World/Collectibles" instance=ExtResource("7_o6xl0")]
+position = Vector2(-3213, 1658)
+
+[node name="Fish4" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-283, -1300)
+scale = Vector2(1.30147, 0.955196)
+freq = 0.6
+x_offset = 150.0
+y_offset = 50.0
+
+[node name="Fish5" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(334, 3415)
+x_offset = 50.0
+y_offset = 150.0
+
+[node name="Fish6" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(5116, -2094)
+y_offset = 300.0
+
+[node name="Fish7" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-446, 366)
+scale = Vector2(1.30147, 0.955196)
+freq = 0.6
+x_offset = 150.0
+y_offset = 50.0
+
+[node name="Fish8" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(4820, 2203)
+freq = 0.6
+x_offset = 50.0
+y_offset = 104.0
+
+[node name="Fish9" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(2760, -903)
+freq = 0.6
+y_offset = 300.0
+
+[node name="Fish10" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(5348, -211)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 55.0
+y_offset = 50.0
+
+[node name="Fish11" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-2023, -1127)
+x_offset = 55.0
+y_offset = 104.0
+
+[node name="Fish12" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(5518, -992)
+x_offset = 55.0
+y_offset = 300.0
+
+[node name="Fish13" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(3860, 2934)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 150.0
+y_offset = 50.0
+
+[node name="Fish14" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(5687, -110)
+x_offset = 55.0
+y_offset = 104.0
+
+[node name="Fish15" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(1442, 4238)
+x_offset = 55.0
+y_offset = 300.0
+
+[node name="Fish16" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(1016, 3248)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 150.0
+y_offset = 104.0
+
+[node name="Fish17" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-2274, -1649)
+freq = 0.3
+x_offset = 23.0
+y_offset = 150.0
+
+[node name="Fish18" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(4192, -2532)
+y_offset = 104.0
+
+[node name="Fish19" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(4269, 1210)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 150.0
+y_offset = 104.0
+
+[node name="Fish20" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-1722, 3379)
+freq = 0.3
+x_offset = 23.0
+y_offset = 150.0
+
+[node name="Fish21" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(2188, 3520)
+freq = 0.1
+y_offset = 300.0
+
+[node name="Fish22" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(4463, 1220)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 150.0
+y_offset = 50.0
+
+[node name="Fish23" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-3285, 1396)
+x_offset = 10.0
+y_offset = 20.0
+
+[node name="Fish24" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(2971, -2751)
+y_offset = 300.0
+
+[node name="Fish25" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(2970, -2234)
+scale = Vector2(1.30147, 0.955196)
+x_offset = 150.0
+y_offset = 50.0
+
+[node name="Fish26" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(3411, 2828)
+x_offset = 55.0
+y_offset = 150.0
+
+[node name="Fish27" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-291, -344)
+y_offset = 300.0
+
+[node name="Fish28" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-4, -72)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish30" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(24, -355)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish31" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-128, -197)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish32" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(141, -179)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish33" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-1, 228)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish34" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-149, 228)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish35" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(199, 242)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish36" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(-153, 67)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
+
+[node name="Fish37" parent="World/Collectibles" instance=ExtResource("6_85g3d")]
+position = Vector2(124, 21)
+freq = 0.01
+x_offset = 500.0
+y_offset = 5000.0
 
 [node name="Bird" parent="World" instance=ExtResource("1_o5qli")]
 material = SubResource("ShaderMaterial_o6xl0")
