@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://bthbt0ov64j4q"]
+[gd_scene load_steps=90 format=4 uid="uid://bthbt0ov64j4q"]
 
 [ext_resource type="PackedScene" uid="uid://3pkdevn0dy2s" path="res://scenes/bird.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bhhoo2vvo2oo2" path="res://scripts/main.gd" id="1_tipki"]
@@ -13,6 +13,23 @@
 [ext_resource type="PackedScene" uid="uid://cf8vkkwnhy7aa" path="res://scenes/tutorial_screen.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://yvtvipnhx7gj" path="res://scenes/game_over_screen.tscn" id="12_trceg"]
 [ext_resource type="PackedScene" uid="uid://b1qpk08kd2cfy" path="res://scenes/in_game_ui.tscn" id="13_trceg"]
+[ext_resource type="AudioStream" uid="uid://bb1b026o01xmw" path="res://assets/sounds/music_menu.wav" id="14_fv21b"]
+[ext_resource type="AudioStream" uid="uid://by6iexcfdhx08" path="res://assets/sounds/music_game.wav" id="15_tel4y"]
+[ext_resource type="AudioStream" uid="uid://c30fput6fmueo" path="res://assets/sounds/hajime_improved.wav" id="16_qkpxi"]
+[ext_resource type="AudioStream" uid="uid://dhrunl2lqjwlw" path="res://assets/sounds/half_improved.wav" id="17_5q0nq"]
+[ext_resource type="AudioStream" uid="uid://dfhu8u6ep4ghd" path="res://assets/sounds/mate_improved.wav" id="18_dgi5k"]
+[ext_resource type="AudioStream" uid="uid://xh6oa613kfjy" path="res://assets/sounds/gong.wav" id="19_j8jky"]
+[ext_resource type="AudioStream" uid="uid://duux7hd1ioerh" path="res://assets/sounds/click_button.wav" id="20_kmb1v"]
+[ext_resource type="AudioStream" uid="uid://bb5y7wg7ibbat" path="res://assets/sounds/dash.wav" id="21_fuf3a"]
+[ext_resource type="AudioStream" uid="uid://bmgmgd08rb6gv" path="res://assets/sounds/environment_collision.wav" id="22_pibwh"]
+[ext_resource type="AudioStream" uid="uid://c7fhv4blye0rm" path="res://assets/sounds/flap.wav" id="23_c6pm6"]
+[ext_resource type="AudioStream" uid="uid://b60fqb8lktlvj" path="res://assets/sounds/flip.wav" id="24_5he1u"]
+[ext_resource type="AudioStream" uid="uid://ducj27t0v0a6c" path="res://assets/sounds/gather_rice.wav" id="25_5poiv"]
+[ext_resource type="AudioStream" uid="uid://dd6fun3jl0xkc" path="res://assets/sounds/gather_fish.wav" id="26_2cjbq"]
+[ext_resource type="AudioStream" uid="uid://cgpdts0pyxbue" path="res://assets/sounds/gather_seaweed.wav" id="27_chjal"]
+[ext_resource type="AudioStream" uid="uid://vlsnwo4x1650" path="res://assets/sounds/recipe_cooking.wav" id="28_cjqg0"]
+[ext_resource type="AudioStream" uid="uid://wbwvux50iujt" path="res://assets/sounds/recipe_error.wav" id="29_vchkt"]
+[ext_resource type="AudioStream" uid="uid://dyd1d5xon64ya" path="res://assets/sounds/miam_improved.wav" id="30_txyw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("5_tbgi4")
@@ -1284,38 +1301,55 @@ visible = false
 unique_name_in_owner = true
 
 [node name="MusicMenu" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("14_fv21b")
 
 [node name="MusicGame" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("15_tel4y")
 
 [node name="GameHajime" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("16_qkpxi")
 
 [node name="GameHalfTime" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("17_5q0nq")
 
 [node name="GameMate" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("18_dgi5k")
 
 [node name="GameGong" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("19_j8jky")
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("20_kmb1v")
 
 [node name="BirdDash" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("21_fuf3a")
 volume_db = 6.171
 
 [node name="Collision" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("22_pibwh")
 
 [node name="BirdFlap" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("23_c6pm6")
 
 [node name="BirdFlip" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("24_5he1u")
 
 [node name="GatherRice" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("25_5poiv")
 
 [node name="GatherFish" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("26_2cjbq")
 
 [node name="GatherSeaweed" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("27_chjal")
 
 [node name="RecipeCooked" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("28_cjqg0")
 
 [node name="RecipeError" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("29_vchkt")
 
 [node name="RecipeSuccess" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("30_txyw0")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
