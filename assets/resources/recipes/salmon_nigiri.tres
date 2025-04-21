@@ -4,10 +4,11 @@
 [ext_resource type="Script" uid="uid://bmdjnw0cjk1fa" path="res://assets/resources/ingredients/ingredient.gd" id="1_w2glm"]
 [ext_resource type="Resource" uid="uid://77vyk8xu0hwo" path="res://assets/resources/ingredients/salmon.tres" id="2_h3lf8"]
 [ext_resource type="Resource" uid="uid://1su62o1n2vq4" path="res://assets/resources/ingredients/rice.tres" id="3_d5ecg"]
-[ext_resource type="Script" uid="uid://xxgxbfsyoyn2" path="res://assets/resources/recipes/recipe.gd" id="4_ci8bf"]
+[ext_resource type="Script" uid="uid://dwg4wkvcpimvl" path="res://assets/resources/recipes/recipe.gd" id="4_ci8bf"]
 
 [resource]
 script = ExtResource("4_ci8bf")
 icon = ExtResource("1_h3lf8")
 name = "Salmon Nigiri"
 ing_input = Array[ExtResource("1_w2glm")]([ExtResource("2_h3lf8"), ExtResource("2_h3lf8"), ExtResource("3_d5ecg")])
+recipe_score = 100.0

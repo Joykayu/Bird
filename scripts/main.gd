@@ -14,7 +14,7 @@ func _ready():
 	$UI/StartupScreen.show()
 	$UI/GameOverScreen.hide()
 	$UI/TutorialScreen.hide()
-	$UI/Inventory.hide()
+	#$UI/Inventory.hide()
 
 
 func start_game() -> void:

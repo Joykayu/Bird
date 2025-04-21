@@ -931,7 +931,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="WaterShader" type="ColorRect" parent="World"]
-visible = false
 material = ExtResource("2_tbgi4")
 offset_left = -3857.0
 offset_top = -3569.0
@@ -1002,6 +1001,7 @@ scale = Vector2(4, 4)
 centered = false
 
 [node name="GameOverScreen" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1010,6 +1010,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TutorialScreen" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1018,6 +1019,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StartupScreen" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
