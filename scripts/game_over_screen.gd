@@ -1,5 +1,10 @@
 extends Control
 
+func _on_submit_score_button_pressed() -> void:
+	var name = $LineEdit.text
+	%Sounds/ButtonClick.play()
+	get_tree().get_root().get_node("Main").submit_score(name)
+
 func _process(delta):
 	%YourScore.text = str("Score : ",int(floor(GlobalInventory.score)))
 

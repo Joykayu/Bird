@@ -96,5 +96,19 @@ theme = ExtResource("3_po68c")
 text = "Tutorial"
 flat = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 262.0
+offset_right = 565.0
+offset_bottom = 302.0
+color = Color(0.34, 0.34, 0.34, 1)
+
+[node name="ScoreLabel" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 23.0
+
 [connection signal="pressed" from="CenterContainer2/NinePatchRect/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/NinePatchRect/TutorialButton" to="." method="_on_tutorial_button_pressed"]

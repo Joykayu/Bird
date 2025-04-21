@@ -111,5 +111,50 @@ text = "Main menu"
 flat = true
 metadata/_edit_use_anchors_ = true
 
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+offset_left = 399.0
+offset_top = 495.0
+offset_right = 467.563
+offset_bottom = 526.0
+placeholder_text = "Your name"
+
+[node name="CenterContainer4" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 603.0
+offset_top = 188.0
+offset_right = -237.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer4"]
+texture_filter = 1
+custom_minimum_size = Vector2(312, 128)
+layout_mode = 2
+texture = ExtResource("4_cyfkl")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SubmitScore" type="Button" parent="CenterContainer4/NinePatchRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wa2qn")
+text = "Submit score"
+flat = true
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="CenterContainer2/NinePatchRect/REStartButton" to="." method="_on_re_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/NinePatchRect/StartupButton" to="." method="_on_startup_button_pressed"]
+[connection signal="pressed" from="CenterContainer4/NinePatchRect/SubmitScore" to="." method="_on_submit_score_button_pressed"]
