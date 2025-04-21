@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1qpk08kd2cfy"]
+[gd_scene load_steps=7 format=3 uid="uid://b1qpk08kd2cfy"]
 
 [ext_resource type="Script" uid="uid://83ubvertj8x8" path="res://scripts/in_game_ui.gd" id="1_a45jx"]
-[ext_resource type="Texture2D" uid="uid://d107icvwmx4vl" path="res://assets/graphics/food/makis/frame.png" id="1_fnge6"]
+[ext_resource type="Texture2D" uid="uid://7idvhvqk1ial" path="res://assets/graphics/ui/cutting_board.png" id="2_6qwj3"]
 [ext_resource type="Texture2D" uid="uid://cl11b5ei0jvyn" path="res://assets/graphics/food/star_honteusement_volee.png" id="2_a45jx"]
+[ext_resource type="Texture2D" uid="uid://dmd6uu1h01go0" path="res://assets/graphics/ui/cutting_board_ingredient.png" id="2_fqvwy"]
+[ext_resource type="Texture2D" uid="uid://78kypav8wafk" path="res://assets/graphics/ui/cutting_board_recipemade.png" id="4_fqvwy"]
+[ext_resource type="Texture2D" uid="uid://fvqsfscavih0" path="res://assets/graphics/ui/cutting_board_history.png" id="5_ria60"]
 
 [node name="InGameUI" type="Control"]
 layout_mode = 3
@@ -13,104 +16,215 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a45jx")
 
-[node name="Inventory" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
 grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Slot0" type="Control" parent="Inventory"]
-texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
+[node name="CutingBoard" type="Control" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Frame" type="Sprite2D" parent="Inventory/Slot0"]
-scale = Vector2(4, 4)
-texture = ExtResource("1_fnge6")
-centered = false
-
-[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot0"]
-scale = Vector2(4, 4)
-centered = false
-
-[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot0"]
-visible = false
-scale = Vector2(4, 4)
-texture = ExtResource("2_a45jx")
-centered = false
-
-[node name="Slot1" type="Control" parent="Inventory"]
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/CutingBoard"]
 texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
+position = Vector2(-16, -6)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_6qwj3")
+
+[node name="Inventory" type="HBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Frame" type="Sprite2D" parent="Inventory/Slot1"]
-scale = Vector2(4, 4)
-texture = ExtResource("1_fnge6")
-centered = false
-
-[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot1"]
-scale = Vector2(4, 4)
-centered = false
-
-[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot1"]
-visible = false
-scale = Vector2(4, 4)
-texture = ExtResource("2_a45jx")
-centered = false
-
-[node name="Slot2" type="Control" parent="Inventory"]
+[node name="Slot0" type="Control" parent="CenterContainer/Inventory"]
 texture_filter = 1
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Frame" type="Sprite2D" parent="Inventory/Slot2"]
-scale = Vector2(4, 4)
-texture = ExtResource("1_fnge6")
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/Slot0"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_fqvwy")
 centered = false
 
-[node name="IngredientSprite" type="Sprite2D" parent="Inventory/Slot2"]
-scale = Vector2(4, 4)
+[node name="IngredientSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot0"]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(2, 2)
 centered = false
 
-[node name="StarsSprite" type="Sprite2D" parent="Inventory/Slot2"]
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot0"]
 visible = false
 texture_filter = 1
-scale = Vector2(4, 4)
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("2_a45jx")
 centered = false
 
-[node name="FinalSlot" type="Control" parent="Inventory"]
+[node name="Slot1" type="Control" parent="CenterContainer/Inventory"]
 texture_filter = 1
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Frame" type="Sprite2D" parent="Inventory/FinalSlot"]
-scale = Vector2(4, 4)
-texture = ExtResource("1_fnge6")
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/Slot1"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_fqvwy")
 centered = false
 
-[node name="RecipeSprite" type="Sprite2D" parent="Inventory/FinalSlot"]
-scale = Vector2(4, 4)
+[node name="IngredientSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot1"]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(2, 2)
 centered = false
 
-[node name="StarsSprite" type="Sprite2D" parent="Inventory/FinalSlot"]
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot1"]
 visible = false
-scale = Vector2(4, 4)
+texture_filter = 1
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("2_a45jx")
 centered = false
 
-[node name="StarsSprite2" type="Sprite2D" parent="Inventory/FinalSlot"]
+[node name="Slot2" type="Control" parent="CenterContainer/Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/Slot2"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_fqvwy")
+centered = false
+
+[node name="IngredientSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot2"]
+texture_filter = 1
+position = Vector2(8, 8)
+scale = Vector2(2, 2)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/Slot2"]
 visible = false
-position = Vector2(16, 0)
-scale = Vector2(4, 4)
+texture_filter = 1
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("2_a45jx")
 centered = false
 
-[node name="StarsSprite3" type="Sprite2D" parent="Inventory/FinalSlot"]
+[node name="FinalSlot" type="Control" parent="CenterContainer/Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/FinalSlot"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_fqvwy")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="CenterContainer/Inventory/FinalSlot"]
+scale = Vector2(2, 2)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/FinalSlot"]
 visible = false
-position = Vector2(32, 0)
-scale = Vector2(4, 4)
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite2" type="Sprite2D" parent="CenterContainer/Inventory/FinalSlot"]
+visible = false
+position = Vector2(14, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite3" type="Sprite2D" parent="CenterContainer/Inventory/FinalSlot"]
+visible = false
+position = Vector2(22, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="HistorySlot0" type="Control" parent="CenterContainer/Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot0"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_ria60")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot0"]
+scale = Vector2(2, 2)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot0"]
+visible = false
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite2" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot0"]
+visible = false
+position = Vector2(14, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite3" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot0"]
+visible = false
+position = Vector2(22, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="HistorySlot1" type="Control" parent="CenterContainer/Inventory"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Frame" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot1"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_ria60")
+centered = false
+
+[node name="RecipeSprite" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot1"]
+scale = Vector2(2, 2)
+centered = false
+
+[node name="StarsSprite" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot1"]
+visible = false
+position = Vector2(6, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite2" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot1"]
+visible = false
+position = Vector2(14, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("2_a45jx")
+centered = false
+
+[node name="StarsSprite3" type="Sprite2D" parent="CenterContainer/Inventory/HistorySlot1"]
+visible = false
+position = Vector2(22, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("2_a45jx")
 centered = false

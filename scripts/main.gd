@@ -7,8 +7,8 @@ extends Control
 func _ready():
 	GlobalInventory.ing_list_updated.connect(on_ing_list_updated)
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
-	GlobalInventory.recipe_failed.connect(on_recipe_failed)
-	
+	GlobalInventory.next_recipe.connect(on_next_recipe)
+	$CookingTimer.timeout.connect(GlobalInventory.on_cooking_timer_timeout) 
 	# show start screen, hide others
 	show_startup_screen()
 	$Sounds/MusicMenu.play()
@@ -58,7 +58,7 @@ func end_game() -> void:
 	$Sounds/GameGong.play()
 	$Sounds/GameMate.play()
 	
-	$UI/Inventory.hide()
+	$UI/InGameUI.hide()
 	$UI/GameOverScreen.show()
 	
 func submit_high_score() -> void:
@@ -74,8 +74,9 @@ func _on_game_timer_timeout() -> void:
 func on_ing_list_updated() -> void:
 	$UI/InGameUI.update_ingredients_sprite()
 
-func on_recipe_crafted(_is_new_recipe) -> void:
-	$UI/InGameUI.update_recipe_sprite(true)
-
-func on_recipe_failed() -> void:
+func on_recipe_crafted() -> void:
 	$UI/InGameUI.update_recipe_sprite(false)
+	$CookingTimer.start()
+
+func on_next_recipe() -> void:
+	$UI/InGameUI.update_recipe_sprite(true)

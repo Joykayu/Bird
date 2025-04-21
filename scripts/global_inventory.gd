@@ -1,7 +1,5 @@
 extends Node
 
-
-
 # init score and combo multiplier
 var score := 0.0
 var combo := 1.0
@@ -18,11 +16,13 @@ var recipe_history : Array[Recipe]
 var history_depth : int = 2
 var current_slot_idx := 0 
 
+var is_cooking : bool = false
+
 var failed_recipe = preload("res://assets/resources/recipes/failed_recipe.tres")
 
 signal ing_list_updated()
-signal recipe_crafted(is_new_recipe)
-signal recipe_failed()
+signal recipe_crafted(is_succesful)
+signal next_recipe()
 
 func _ready():
 	var recipe_ressource_list = get_all_resource_paths("res://assets/resources/recipes/",false,"Recipe")
@@ -31,52 +31,58 @@ func _ready():
 
 
 func add_ingredient(ingredient: Ingredient, is_shiny : bool = false):
-	match current_slot_idx:
-		0:
-			slot_0 = ingredient
-		1:
-			slot_1 = ingredient
-		2:
-			slot_2 = ingredient
-	shiny_ingredients[current_slot_idx] = is_shiny
-	
-	ing_list_updated.emit()
-	current_slot_idx += 1
-	
-	if current_slot_idx == 3:
-		check_recipe()
+	if !is_cooking:
+		match current_slot_idx:
+			0:
+				slot_0 = ingredient
+			1:
+				slot_1 = ingredient
+			2:
+				slot_2 = ingredient
+		shiny_ingredients[current_slot_idx] = is_shiny
+		
+		ing_list_updated.emit()
+		current_slot_idx += 1
+		
+		if current_slot_idx == 3:
+			check_recipe()
 
 
 func check_recipe():
 	var current_ingredients : Array[Ingredient] = [slot_0, slot_1, slot_2]
-	var correct_ingredients = false
+	var correct_ingredients := false
+	
+	is_cooking = true
 	
 	for recipe in recipe_list:
 		# if recipe exists
 		if recipe.ing_input == current_ingredients:
 			recipe.quality = shiny_ingredients
+			recipe_history.append(recipe)
+			recipe_crafted.emit()
 			if is_in_history(recipe):
-				recipe_history.append(recipe)
-				recipe_crafted.emit(false)
 				update_score_and_combo(recipe,false)
 			else:
-				recipe_history.append(recipe)
-				recipe_crafted.emit(true)
 				update_score_and_combo(recipe,true)
 			
 			correct_ingredients = true
-			
+	
 	
 	if !correct_ingredients:
-		recipe_failed.emit()
+		recipe_history.append(failed_recipe)
+		recipe_crafted.emit()
 		update_score_and_combo(failed_recipe,false)
-		
+
+
+func on_cooking_timer_timeout():
 	slot_0 = null
 	slot_1 = null
 	slot_2 = null
 	shiny_ingredients = [false, false, false]
 	current_slot_idx = 0
 	ing_list_updated.emit()
+	is_cooking = false
+	next_recipe.emit()
 
 func is_in_history(recipe) -> bool:
 	var l = recipe_history.size()
