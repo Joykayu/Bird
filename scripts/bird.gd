@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var max_velocity := 800
-
+var is_deactivated := true
 
 var dash_duration := 0.3
 var dash_speed := max_velocity * 2
@@ -28,7 +28,7 @@ var drag := 1.0
 
 
 @onready var min_zoomout : float = $Camera2D.zoom.x
-var max_zoomout := 0.4
+var max_zoomout := 0.3
 var zoomout_speed := 0.5
 var zoomin_speed := 0.1
 
@@ -71,7 +71,7 @@ func _physics_process(delta):
 			$DashCD.start()
 			
 		else:
-			# if not finished, set speed to dash speed			
+			# if not finished, set speed to dash speed
 			velocity = -(transform.y).normalized() * dash_speed
 	
 	if counting_lag :
@@ -84,11 +84,6 @@ func _physics_process(delta):
 			angular_velocity = 0
 			
 		elif Input.is_action_pressed("flap_left") or Input.is_action_pressed("flap_right"):
-			if Input.is_action_pressed("flap_left"):
-				%Sounds/BirdFlap.play()
-			if Input.is_action_pressed("flap_right"):
-				%Sounds/BirdFlip.play()
-				
 			increment_velocity(speed_turning) 
 			
 			var rotation_direction = int(Input.is_action_pressed("flap_right")) - int(Input.is_action_pressed("flap_left"))
@@ -125,6 +120,9 @@ func _physics_process(delta):
 
 func _input(event):	
 	
+	if is_deactivated:
+		return
+	
 	if is_dashing:
 		return
 	
@@ -139,12 +137,20 @@ func _input(event):
 			if !$DashCD.is_stopped():
 				return
 			
-			%Sounds/BirdDash.play()
 			counting_lag = true
 			is_dashing = true
 			dash_timer = 0
 			
 			
+			
+func deactivate() -> void:
+	# block controls
+	is_deactivated = true
+	
+func activate() -> void:
+	# restore controls
+	is_deactivated = false
+	
 func increment_velocity (increment: float):
 	var new_velocity_length = velocity.length() + increment
 	
