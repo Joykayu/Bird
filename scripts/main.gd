@@ -11,7 +11,6 @@ func _ready():
 	
 	# show start screen, hide others
 	show_startup_screen()
-	$Sounds/MusicMenu.play()
 	
 ## UI display functions
 func show_startup_screen() -> void:
@@ -24,11 +23,6 @@ func show_startup_screen() -> void:
 func start_game() -> void:
 	print("start")
 	# show start screen, hide others
-	$Sounds/MusicMenu.stop()
-	$Sounds/MusicGame.play()
-	$Sounds/GameGong.play()
-	$Sounds/GameHajime.play()
-	
 	$UI/GameOverScreen.hide()
 	$UI/TutorialScreen.hide()
 	$UI/InGameUI.show()
@@ -52,12 +46,6 @@ func hide_tutorial() -> void:
 	
 func end_game() -> void:
 	print("end_game")
-	
-	$Sounds/MusicMenu.play()
-	$Sounds/MusicGame.stop()
-	$Sounds/GameGong.play()
-	$Sounds/GameMate.play()
-	
 	$UI/Inventory.hide()
 	$UI/GameOverScreen.show()
 	
