@@ -18,6 +18,7 @@ func _ready():
 
 
 func start_game() -> void:
+	print("start")
 	# Start game timer
 	$GameTimer.start()
 	# Reset score, combo, recipe history, etc
@@ -25,12 +26,20 @@ func start_game() -> void:
 	GlobalInventory.combo = 1.0
 	GlobalInventory.recipe_history = []
 	
+func show_tutorial() -> void:
+	print("show tutorial")
+	
+func hide_tutorial() -> void:
+	print("hide tutorial")
 	
 func end_game() -> void:
+	print("end_game")
 	
-	# switch to end screen
-	pass
-
+func _on_game_timer_timeout() -> void:
+	print("game timeout!")
+	end_game()
+	
+	
 func on_ing_list_updated() -> void:
 	update_ingredients_sprite()
 
