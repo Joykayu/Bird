@@ -8,7 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: transparent;
-            color: #333;
         }
 
         h1 {
@@ -18,7 +17,8 @@
         #leaderboard {
             max-width: 600px;
             /* margin: 2em auto; */
-            background: white;
+            background: #ebdac1;
+            color: #b23030;
             /* padding: 1em; */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -36,22 +36,25 @@
         }
 
         tr {
-            border-bottom: 1px solid #ccc;
+            color: #222222;
+            font-weight: bold;
+            border-bottom: 1px solid #ebdac1;
         }
 
         tr:last-child {
-            border-bottom: 0px solid #ccc;
+            border-bottom: 0px;
         }
 
         th {
-            background-color: #eee;
+            color: #b23030;
+            border-bottom: 1px solid #b23030;
         }
     </style>
 </head>
 
 <body>
 
-    <div id="leaderboard" style="max-height: 500px; overflow-y: auto;">
+    <div id="leaderboard">
         <p>Loading leaderboard...</p>
     </div>
 
@@ -90,7 +93,7 @@
               ${players.map((player, index) => `
                 <tr>
                   <td>#${index + 1}</td>
-                  ${!player.name ? "<td style=\"color: #d5d8dc\">NaN</td>" : `<td>${player.name}</td>`}
+                  ${!player.name ? "<td style=\"opacity: 0.5; font-weight: normal;\">NaN</td>" : `<td>${player.name}</td>`}
                   <td>${player.score}</td>
                 </tr>
               `).join('')
