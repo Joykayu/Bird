@@ -66,8 +66,10 @@ func _physics_process(delta):
 			$DashCD.start()
 			
 		else:
-			# if not finished, set speed to dash speed			
+			# if not finished, set speed to dash speed
 			velocity = -(transform.y).normalized() * dash_speed
+			# also cancel out angular velocity. Dash is always straight
+			angular_velocity = 0
 	
 	if counting_lag :
 		input_lag += delta
@@ -82,7 +84,7 @@ func _physics_process(delta):
 			if Input.is_action_pressed("flap_left"):
 				%Sounds/BirdFlap.play()
 			if Input.is_action_pressed("flap_right"):
-				%Sounds/BirdFlip.play()
+				%Sounds/BirdFlip.play() 
 				
 			increment_velocity(speed_turning) 
 			
@@ -153,6 +155,30 @@ func _input(event):
 			else:
 				Input.action_press("flap_right")
 				counting_lag = true
+	
+	# detect drag to trigger a dash
+	if event is InputEventScreenDrag:
+		# if y drag speed is slow (finger presses, but does not move too much)
+		#if abs(event.screen_relative[1]) < 10:
+			#if event.position[0] < get_window().content_scale_size[0]/2:
+				#Input.action_press("flap_left")
+				#counting_lag = true
+			#else:
+				#Input.action_press("flap_right")
+				#counting_lag = true
+		## if y drag speed is high, i.e. a swipe:
+		if abs(event.screen_relative[1]) >= 10:
+			print('GO!')
+			# release first bc we don't want to flap if the wanted action was a dash.
+			Input.action_release("flap_left")
+			Input.action_release("flap_right")
+			# do nothing is dash is on cooldown.
+			if !$DashCD.is_stopped():
+				return
+			%Sounds/BirdDash.play()
+			counting_lag = true
+			is_dashing = true
+			dash_timer = 0
 	
 func deactivate() -> void:
 	# block controls
