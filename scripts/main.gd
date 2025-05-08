@@ -59,10 +59,14 @@ func start_game() -> void:
 	# Start game timer
 	$GameTimer.start()
 	
-	# Reset score, combo, recipe history, etc
+	# Reset score, combo, recipe history, inventory etc
 	GlobalInventory.score = 0.0
 	GlobalInventory.combo = 1.0
-	GlobalInventory.recipe_history = []
+	GlobalInventory.reset_inventory()
+	GlobalInventory.reset_history()
+	# reset UI
+	$UI/InGameUI.reset_recipe_sprites()
+	
 	
 func show_tutorial() -> void:
 	print("show tutorial")

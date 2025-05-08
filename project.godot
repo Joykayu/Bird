@@ -26,6 +26,7 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://assets/": "pink",
 "res://assets/audio/": "yellow",
 "res://assets/graphics/": "red",
 "res://assets/resources/": "orange",

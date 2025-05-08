@@ -75,12 +75,7 @@ func check_recipe():
 
 
 func on_cooking_timer_timeout():
-	slot_0 = null
-	slot_1 = null
-	slot_2 = null
-	shiny_ingredients = [false, false, false]
-	current_slot_idx = 0
-	ing_list_updated.emit()
+	reset_inventory()
 	is_cooking = false
 	next_recipe.emit()
 
@@ -103,6 +98,17 @@ func update_score_and_combo(recipe,new_recipe) -> void:
 		score += recipe_score * combo
 
 
+func reset_inventory() -> void:
+	slot_0 = null
+	slot_1 = null
+	slot_2 = null
+	shiny_ingredients = [false, false, false]
+	current_slot_idx = 0
+	ing_list_updated.emit()
+	
+func reset_history() -> void:
+	recipe_history = []
+	
 ## Returns an array of full file paths to all resources in the directory at the specified path.
 ## These file paths can be used to load the resources with load().
 
