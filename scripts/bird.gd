@@ -9,14 +9,14 @@ var dash_speed := max_velocity * 2
 var is_dashing := false
 var dash_timer = 0
 var is_dash_cooling_down := false
-var dash_cooldown_duration := 2
+var dash_cooldown_duration := 0.5
 
 @export var dash_color : Color 
 
 # Variables for player movement - Change to change the feel
 var speed := 200
 var speed_turning := 200
-var rot_speed := 4.0
+var rot_speed := 3.0
 var rot_drag := 3.0
 var drag := 1.0
 
