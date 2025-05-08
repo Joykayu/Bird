@@ -15,18 +15,13 @@ var dash_cooldown_duration := 2
 
 # Variables for player movement - Change to change the feel
 var speed := 200
-
-
-
 var speed_turning := 200
-
 var rot_speed := 4.0
 var rot_drag := 3.0
-
 var drag := 1.0
 
 
-
+# camera settings
 @onready var min_zoomout : float = $Camera2D.zoom.x
 var max_zoomout := 0.3
 var zoomout_speed := 0.5
@@ -146,9 +141,19 @@ func _input(event):
 			counting_lag = true
 			is_dashing = true
 			dash_timer = 0
-			
-			
-			
+	
+	# detect flaps on touchscreen.
+	if event is InputEventScreenTouch:
+		# do not consider finger releast as a tap.
+		if event.is_pressed():
+			# left 
+			if event.position[0] < get_window().content_scale_size[0]/2:
+				Input.action_press("flap_left")
+				counting_lag = true
+			else:
+				Input.action_press("flap_right")
+				counting_lag = true
+	
 func deactivate() -> void:
 	# block controls
 	is_deactivated = true

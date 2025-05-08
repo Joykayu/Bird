@@ -1,17 +1,37 @@
 extends Control
 
-
 var api_key := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpzY3Zvc3ZtYnVpZnlzYW1ybmt0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NTI0MDQwOSwiZXhwIjoyMDYwODE2NDA5fQ.zLCqbq5Slh5D_Um_EuTiFSCdRdHAHeDgxKn-vjwudrY"
 
+# touchscreen_mode controls whether to activate touchscreen controls, or default to keyboard mode. Importantly, this makes the dash button show up or not.
+#var touchscreen_mode := false
+
 func _ready():
+	
+	
+	## upon starting, detect if being played on smartphone or computer.
+	#match OS.get_name():
+		#"Android","iOS":
+			## toggle touchscreen mode
+			#touchscreen_mode = true
+		#_:
+			## default to keyboard mode
+			#touchscreen_mode = false
+	
+	# connect stuff
 	GlobalInventory.ing_list_updated.connect(on_ing_list_updated)
 	GlobalInventory.recipe_crafted.connect(on_recipe_crafted)
 	GlobalInventory.next_recipe.connect(on_next_recipe)
 	$CookingTimer.timeout.connect(GlobalInventory.on_cooking_timer_timeout) 
+	
 	# show start screen, hide others
 	show_startup_screen()
+	
+	# play music
 	$Sounds/MusicMenu.play()
+	
+	# fetch scores from online scoreboard
 	get_scores()
+	
 	
 ## UI display functions
 func show_startup_screen() -> void:
@@ -97,7 +117,7 @@ func get_scores() -> void:
 	
 func on_score_read_completed(result, response_code, headers, body):
 	var score_array = JSON.parse_string(body.get_string_from_utf8())
-	print(response_code, JSON.stringify(score_array))
+	#print(response_code, JSON.stringify(score_array))
 
 	var score_string := ""
 	for i in range(score_array.size()):
