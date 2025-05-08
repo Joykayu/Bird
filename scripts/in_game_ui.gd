@@ -74,3 +74,15 @@ func update_recipe_sprite(go_next) -> void:
 			%Inventory/HistorySlot1/RecipeSprite.texture = GlobalInventory.recipe_history[-2].icon
 			for star_idx in range(3):
 				history_1_stars[star_idx].visible = GlobalInventory.recipe_history[-2].quality[star_idx]
+
+func reset_recipe_sprites() -> void:
+	# reset all sprites. TODO: make a for loop in case we change display
+	%Inventory/FinalSlot/RecipeSprite.texture = null
+	%Inventory/HistorySlot0/RecipeSprite.texture = null
+	%Inventory/HistorySlot1/RecipeSprite.texture = null
+	for star_idx in range(3):
+		recipe_stars[star_idx].visible = false
+	for star_idx in range(3):
+		history_0_stars[star_idx].visible = false
+	for star_idx in range(3):
+		history_1_stars[star_idx].visible = false
