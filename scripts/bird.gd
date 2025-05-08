@@ -167,7 +167,7 @@ func _input(event):
 				#Input.action_press("flap_right")
 				#counting_lag = true
 		## if y drag speed is high, i.e. a swipe:
-		if abs(event.screen_relative[1]) >= 10:
+		if abs(event.screen_relative[1]) >= 20:
 			print('GO!')
 			# release first bc we don't want to flap if the wanted action was a dash.
 			Input.action_release("flap_left")
