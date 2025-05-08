@@ -11,6 +11,9 @@ var dash_timer = 0
 var is_dash_cooling_down := false
 var dash_cooldown_duration := 0.5
 
+# touchscreen threshold to detect a dash command
+var minimum_drag_distance_to_dash := 50
+
 @export var dash_color : Color 
 
 # Variables for player movement - Change to change the feel
@@ -167,8 +170,7 @@ func _input(event):
 				#Input.action_press("flap_right")
 				#counting_lag = true
 		## if y drag speed is high, i.e. a swipe:
-		if abs(event.screen_relative[1]) >= 20:
-			print('GO!')
+		if abs(event.screen_relative[1]) >= minimum_drag_distance_to_dash:
 			# release first bc we don't want to flap if the wanted action was a dash.
 			Input.action_release("flap_left")
 			Input.action_release("flap_right")
